@@ -26,11 +26,19 @@ limitations under the License.
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml" version="1.0">
 	<xsl:output method="html" encoding="UTF-8" omit-xml-declaration="no" indent="no"
 		doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"/>
+		
+	<!-- === repos style configuration === -->
+	<!-- static: absolute url to style application -->
 	<xsl:param name="static">/repos/</xsl:param>
+	<!-- cssUrl: absolute url to css folder -->
 	<xsl:param name="cssUrl"><xsl:value-of select="$static"/>style/</xsl:param>
+	<!-- logUrl: empty -> no log application, absolute url -> enable 'history' action -->
 	<xsl:param name="logUrl"><xsl:value-of select="$static"/>open/log/</xsl:param>
-	<xsl:param name="spacer" select="' &#160; '"/>
+	<!-- startpage: empty -> standard behaviour, absolute url -> special handling of 'up' from trunk -->
 	<xsl:param name="startpage">/</xsl:param>
+	<!-- ===== end of configuration ===== -->
+	
+	<xsl:param name="spacer" select="' &#160; '"/>
 	<xsl:template match="/">
 		<html xmlns="http://www.w3.org/1999/xhtml">
 			<head>
@@ -49,8 +57,8 @@ limitations under the License.
 		</html>
 	</xsl:template>
 	<xsl:template name="styletag">
-		<link rel="stylesheet" type="text/css" href="{$cssUrl}global.css"/>
-		<link rel="stylesheet" type="text/css" href="{$cssUrl}repository/repository.css"/>
+		<link rel="stylesheet" type="text/css" media="screen,projection" href="{$cssUrl}global.css"/>
+		<link rel="stylesheet" type="text/css" media="screen,projection" href="{$cssUrl}repository/repository.css"/>
 	</xsl:template>
 	<xsl:template match="svn">
 		<xsl:apply-templates select="index"/>

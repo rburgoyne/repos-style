@@ -19,15 +19,19 @@ limitations under the License.
   stylesheet is read from the same domain as the XML
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml" version="1.0">
-	<!-- start transform -->
 	<xsl:output method="html" encoding="UTF-8" omit-xml-declaration="no" indent="no"
 		doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"/>
+	
+	<!-- === repos style configuration === -->
+	<!-- static: absolute url to style application -->
 	<xsl:param name="static">/repos/</xsl:param>
+	<!-- cssUrl: absolute url to css folder -->
 	<xsl:param name="cssUrl"><xsl:value-of select="$static"/>style/</xsl:param>
 	<!-- log viewer does not know the repository URL -->
 	<xsl:param name="repoUrl">javascript:history.go(-1)</xsl:param>
+	<!-- ===== end of configuration ===== -->
+	
 	<xsl:param name="spacer" select="' &#160; '"/>
-	<!-- document skeleton -->
 	<xsl:template match="/">
 		<html xmlns="http://www.w3.org/1999/xhtml">
 			<head>
@@ -49,25 +53,21 @@ limitations under the License.
 	<xsl:template match="svn">
 		<xsl:apply-templates select="index"/>
 	</xsl:template>
-	<!-- body contents -->
 	<xsl:template match="log">
 		<xsl:call-template name="commandbar"/>
 		<xsl:call-template name="contents"/>
 		<xsl:call-template name="footer"/>
 	</xsl:template>
-	<!-- toolbar, directory actions -->
 	<xsl:template name="commandbar">
 		<div id="commandbar">
 		<a id="repository" href="{$repoUrl}">return to repository</a>
 		</div>
 	</xsl:template>
-	<!-- directory listing -->
 	<xsl:template name="contents">
 		<h1>Repository history</h1>
 		<xsl:apply-templates select="logentry"/>
 		<p><a class="action" href="{$repoUrl}">&#171; return to repository</a></p>
 	</xsl:template>
-	<!-- extra info and logos -->
 	<xsl:template name="footer">
 		<div id="footer">
 		<span><a href="http://www.repos.se/" target="_blank">Repos</a> log light &amp; <a href="http://www.kde-look.org/content/show.php?content=16479" target="_blank">Cezanne icons</a></span>
@@ -76,9 +76,6 @@ limitations under the License.
 		<span class="legal">Powered by Subversion</span>
 		</div>
 	</xsl:template>
-	<!--
-	========= svn log xml formatting ==========
-	-->
 	<xsl:template match="logentry">
 		<xsl:param name="n" select="position() - 1"/>
 		<div id="rev{@revision}" class="logentry n{$n mod 4}">
@@ -155,7 +152,6 @@ limitations under the License.
 			</xsl:if>
 		</div>
 	</xsl:template>
-	<!-- *** replace newline with <br> *** -->
 	<xsl:template name="linebreak">
 		<xsl:param name="text"/>
 		<xsl:choose>
@@ -171,8 +167,6 @@ limitations under the License.
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
-	<!-- make valid (and probably unique) HTML id for log entry, containing [A-Za-z0-9] and [-_.] -->
-	<!-- the log xml has no urlencoded values, so it will be slightly different than repository -->
 	<xsl:template name="getFileID">
 		<xsl:param name="filename" select="@href"/>
 		<xsl:value-of select="translate($filename,'%/()@&amp;+=,~$! ','_____________')"/>
