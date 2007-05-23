@@ -5,6 +5,8 @@ body {
 	background-color: #557755;
 	margin-left: 2%;
 	margin-right: 2%;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 h1, h2, h3, p, ul, ol, table {
 	padding-top: 0em;
@@ -17,18 +19,22 @@ h1, h2, h3, p, ul, ol, table {
 	border-left: 2px solid #C4C4C4;
 	border-right: 3px solid #A4A4A4;
 }
+table {
+	padding-left: 0px;
+	padding-right: 0px;
+}
 ul, ol {
 	width: 690px;
 	padding-left: 50px;
 }
 /* text style */
 h1, h2, h3 {
-	font-family: sans-serif;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-weight: normal;
 	padding-top: 1em;
 }
 h1 {
-	font-size: 2em;
+	font-size: 2.4em;
 	font-weight: bold;
 	color: #556060;
 }
@@ -39,9 +45,14 @@ h3 {
 	color: #555555;
 }
 p, ul, ol {
-	font-family: serif;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 1.0em;
 	color: #333333;
+}
+em {
+	font-weight: bold;
+	font-style: normal;
+	color: #556060;
 }
 a {
 	color: #003399;
