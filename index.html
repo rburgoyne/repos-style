@@ -4,6 +4,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Repos Style - Subversion index XSLT + css + icons</title>
 <link type="text/css" rel="stylesheet" href="home/documents.css"/>
+<style type="text/css">
+table h3 {
+	width: auto;
+	border: none;
+	padding: 0px;
+}
+</style>
 </head>
 
 <body>
@@ -12,17 +19,17 @@
 <p><em>You need</em> the repository configured in Apache. See <a href="http://svnbook.red-bean.com/nightly/en/svn.serverconfig.httpd.html">the Subversion book</a>. Repos Style is installed with an <code>SVNIndexXSLT</code> directive. To use the log viewer you need PHP.</p>
 <p><em>The advantages</em> of using XSLT instead of a viewer like ViewSVN is that it is lightweight and that you use the <em>real URLs</em> in the directory listing. There is no viewer for older revisions, but you can customize the stylesheet to link to other tools. </p>
 <p>View <em>samples </em><a href="samples/">here</a>. </p>
-<p>
-<table border="0">
+
+<table border="0" id="screenshots">
   <tr>
-    <td>From</td>
-    <td><img src="svn-noxslt.png" alt="plain text svn index" title="The default subversion index page"/></td>
-    <td>to</td>
-    <td><img src="svn-reposstyle.png" alt="colorful index with icons" title="Transformed by Repos Style XSLT"/></td>
-    <td>in five minutes.</td>
+    <td><h3>From</h3></td>
+    <td><img class="screenshot" src="svn-noxslt.png" alt="plain text svn index" title="The default subversion index page"/></td>
+    <td><h3>to</h3></td>
+    <td><img class="screenshot" src="svn-reposstyle.png" alt="colorful index with icons" title="Transformed by Repos Style XSLT"/></td>
+    <td><h3>in five minutes</h3></td>
   </tr>
 </table>
-</p>
+
 <p>Start by verifying that your http repository is up and running. </p>
 <ol><li><a href="#download">Download</a> Repos Style zip </li>
   <li>Unzip to the document root of the repository host (this creates a folder /repos)</li>
