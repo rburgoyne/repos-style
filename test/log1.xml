@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="/repos/view/log.xsl"?>
+<log>
+<logentry
+   revision="3">
+<author>Huckleberry Finn</author>
+<date>2007-05-22T17:27:54.748870Z</date>
+<paths>
+<path
+   action="A">/welcome/trunk/readme.txt</path>
+</paths>
+<msg>Added welcome file that can be deleted at any time</msg>
+</logentry>
+<logentry
+   revision="2">
+<author>Tom Sawyer</author>
+
+<date>2007-05-22T17:27:53.356868Z</date>
+<paths>
+<path
+   action="A">/welcome/trunk</path>
+</paths>
+<msg>Created file archive folder, named in compliance with subversion convention</msg>
+</logentry>
+<logentry
+   revision="1">
+<author>Huckleberry Finn</author>
+<date>2007-05-22T17:27:52.926249Z</date>
+<paths>
+<path
+   action="A">/welcome</path>
+
+</paths>
+<msg>Created a sample project</msg>
+</logentry>
+</log>

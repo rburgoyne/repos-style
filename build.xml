@@ -1,0 +1,49 @@
+<project name="Repos Style" default="dist" basedir=".">
+	<description>
+		Build and package the Repos Style project
+   </description>
+	
+	<!-- project info -->
+	<property name="version" value="1.1" />
+	
+	<!-- configuration -->
+	<property name="src" location="repos" />
+	<property name="build" location="target" description="Main folder for build output"/>
+	<property name="dist" value="${build}/dist" description="Everything that should be copied to web"/>
+	<property name="app" value="repos" description="Name of the folder inside zip"/>
+	
+	<target name="init">
+		<tstamp />
+		<mkdir dir="${build}" />
+		<mkdir dir="${dist}" />
+	</target>
+
+	<target name="compile" depends="init">
+		<mkdir dir="${build}/${app}" />
+		<copy todir="${build}/${app}">
+			<fileset dir="${src}"></fileset>
+		</copy>
+	</target>
+
+	<target name="samples" depends="compile">
+		<mkdir dir="${build}/${app}-samples" />
+	</target>
+	
+	<target name="test" depends="samples">
+		
+	</target>
+	
+	<target name="dist" depends="test" description="generate the distribution">
+		<zip destfile="${dist}/repos-style-${version}.zip">
+			<fileset dir="${build}">
+				<include name="${app}/**"/>
+				<include name="${app}-samples/**"/>
+			</fileset>
+		</zip>
+	</target>
+
+	<target name="clean" description="Remove all build results">
+		<delete dir="${build}" />
+		<delete dir="${dist}" />
+	</target>
+</project>
