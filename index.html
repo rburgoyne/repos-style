@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Untitled Document</title>
+<title>Repos Style - Subversion index XSLT + css + icons</title>
+<link type="text/css" rel="stylesheet" href="home/documents.css"/>
 </head>
 
 <body>
@@ -10,21 +11,18 @@
 <p>A free  open source <em>stylesheet</em> for Subversion index in Apache. The XSLT and css is fully customizable. There is icons for folders and many different filetypes. Install Repos Style as-is or use as a sample XSLT to design your own. It also includes a simple <em>log viewer</em>. </p>
 <p><em>You need</em> the repository configured in Apache. See <a href="http://svnbook.red-bean.com/nightly/en/svn.serverconfig.httpd.html">the Subversion book</a>. Repos Style is installed with an <code>SVNIndexXSLT</code> directive. To use the log viewer you need PHP.</p>
 <p><em>The advantages</em> of using XSLT instead of a viewer like ViewSVN is that it is lightweight and that you use the <em>real URLs</em> in the directory listing. There is no viewer for older revisions, but you can customize the stylesheet to link to other tools. </p>
-<p>View <em>samples </em><a href="#">here</a>. </p>
+<p>View <em>samples </em><a href="samples/">here</a>. </p>
+<p>
 <table border="0">
   <tr>
     <td>From</td>
-    <td>[<br />
-      boring<br />
-    ]</td>
+    <td><img src="svn-noxslt.png" alt="plain text svn index" title="The default subversion index page"/></td>
     <td>to</td>
-    <td><p>[<br />
-      nice<br />
-    ]</p>
-    </td>
+    <td><img src="svn-reposstyle.png" alt="colorful index with icons" title="Transformed by Repos Style XSLT"/></td>
     <td>in five minutes.</td>
   </tr>
 </table>
+</p>
 <p>Start by verifying that your http repository is up and running. </p>
 <ol><li><a href="#download">Download</a> Repos Style zip </li>
   <li>Unzip to the document root of the repository host (this creates a folder /repos)</li>
@@ -41,7 +39,7 @@
 <h2>How to customize </h2>
 <p>&nbsp;</p>
 <h2><a name="download" id="download"></a>Download</h2>
-<p>&nbsp;</p>
+<p>Get the latest zipped distribution from the <a href="download/">download</a> folder.</p>
 <h2>Development</h2>
 <p>This project is open source. You chan check out the contents at <a href="https://labs.repos.se/data/style/trunk/">labs.repos.se</a>. It is <a href="https://labs.repos.se/data/style/trunk/LICENSE-2.0.txt">Apache 2.0</a> license, while the icons are <a href="http://creativecommons.org/licenses/by-sa/2.0/">Creative Commons ShareAlike 2.0</a>. </p>
 <p>At present the developers are Staffan Olsson and Ermin Catic. We would happily accept other contributors to the project. Design and CSS expertise would be very welcome. Contact <em>i n f o</em> at reposstyle.com. </p>

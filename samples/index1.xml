@@ -24,8 +24,8 @@
     <dir name="commands" href="commands/" />
     <file name="global.css" href="global.css" />
     <dir name="log" href="log/" />
-    <dir name="repository One" href="repository%20One/" />
-    <file name="row background.png" href="row%20background.png" />
+    <dir name="repository" href="repository/" />
+    <file name="rowbackground.png" href="rowbackground.png" />
 
   </index>
 </svn>

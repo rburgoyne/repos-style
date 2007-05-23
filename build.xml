@@ -8,6 +8,7 @@
 	
 	<!-- configuration -->
 	<property name="src" location="repos" />
+	<property name="test" location="samples" />
 	<property name="build" location="target" description="Main folder for build output"/>
 	<property name="dist" value="${build}/dist" description="Everything that should be copied to web"/>
 	<property name="app" value="repos" description="Name of the folder inside zip"/>
@@ -19,14 +20,26 @@
 	</target>
 
 	<target name="compile" depends="init">
-		<mkdir dir="${build}/${app}" />
-		<copy todir="${build}/${app}">
+		<mkdir dir="${dist}/${app}" />
+		<copy todir="${dist}/${app}">
 			<fileset dir="${src}"></fileset>
 		</copy>
 	</target>
 
 	<target name="samples" depends="compile">
-		<mkdir dir="${build}/${app}-samples" />
+		<mkdir dir="${dist}/samples" />
+		<xslt style="${dist}/${app}/view/repos.xsl" force="true"
+			basedir="${test}" destdir="${dist}/samples"
+			includes="**/index*.xml" extension=".html">
+			<param name="static" expression="../repos/"/>
+			<outputproperty name="indent" value="yes"/>
+		</xslt>
+		<xslt style="${dist}/${app}/view/log.xsl" force="true"
+			basedir="${test}" destdir="${dist}/samples"
+			includes="**/log*.xml" extension=".html">
+			<param name="static" expression="../repos/"/>
+			<outputproperty name="indent" value="yes"/>
+		</xslt>
 	</target>
 	
 	<target name="test" depends="samples">
@@ -34,10 +47,21 @@
 	</target>
 	
 	<target name="dist" depends="test" description="generate the distribution">
-		<zip destfile="${dist}/repos-style-${version}.zip">
-			<fileset dir="${build}">
+		<mkdir dir="${dist}/download"/>
+		<copy todir="${dist}">
+			<fileset dir="${basedir}">
+				<include name="*.html"/>
+				<include name="*.png"/>
+				<include name="*.txt"/>
+				<include name="home/**"/>
+			</fileset>
+		</copy>
+		<copy todir="${dist}/${app}">
+			<fileset dir="${dist}" includes="*LICENSE*" />
+		</copy>
+		<zip destfile="${dist}/download/repos-style-${version}.zip">
+			<fileset dir="${dist}">
 				<include name="${app}/**"/>
-				<include name="${app}-samples/**"/>
 			</fileset>
 		</zip>
 	</target>
