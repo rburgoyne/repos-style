@@ -5,6 +5,7 @@
 	
 	<!-- project info -->
 	<property name="version" value="1.1" />
+	<filter token="Dev" value="${version}"/>
 	
 	<!-- configuration -->
 	<property name="src" location="repos" />
@@ -21,8 +22,11 @@
 
 	<target name="compile" depends="init">
 		<mkdir dir="${dist}/${app}" />
-		<copy todir="${dist}/${app}">
-			<fileset dir="${src}"></fileset>
+		<copy todir="${dist}/${app}" filtering="true">
+			<fileset dir="${src}" includes="**/*.xsl,**/*.css"/>
+		</copy>
+		<copy todir="${dist}/${app}" filtering="false">
+			<fileset dir="${src}" excludes="**/*.xsl,**/*.css"/>
 		</copy>
 	</target>
 

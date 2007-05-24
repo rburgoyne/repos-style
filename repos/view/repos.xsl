@@ -26,7 +26,8 @@ limitations under the License.
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml" version="1.0">
 	<xsl:output method="html" encoding="UTF-8" omit-xml-declaration="no" indent="no"
 		doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"/>
-		
+	<xsl:param name="reposstyle-version">@Dev@</xsl:param>
+	
 	<!-- === repos style configuration === -->
 	<!-- static: absolute url to style application -->
 	<xsl:param name="static">/repos/</xsl:param>
@@ -170,8 +171,9 @@ limitations under the License.
 	</xsl:template>
 	<xsl:template name="footer">
 		<div id="footer">
-		<span>version <span class="revision"><xsl:value-of select="@rev"/></span> - </span>
-		<span><a href="http://www.repos.se/" target="_blank">Repos</a> stylesheet light &amp; <a href="http://www.kde-look.org/content/show.php?content=16479" target="_blank">Cezanne icons</a></span>
+		<span>Version <span class="revision"><xsl:value-of select="@rev"/></span> - </span>
+		<span><a href="http://www.reposstyle.com/" target="_blank">Repos&#160;Style</a>&#160;<xsl:value-of select="$reposstyle-version"/> 
+		&amp; <a href="http://www.kde-look.org/content/show.php?content=16479" target="_blank">Cezanne&#160;icons</a></span>
 		<span id="badges">
 		</span>
 		<span class="legal">
