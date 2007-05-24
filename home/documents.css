@@ -73,6 +73,10 @@ img {
 #versions {
 	list-style: none;
 }
+#versions li {
+	padding-top: 0.3em;
+	padding-bottom: 0.5em;	
+}
 .revision {
 	color: #006600;
 	padding: 1px;
