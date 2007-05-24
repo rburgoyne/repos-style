@@ -5,22 +5,34 @@
 <title>Repos Style - Subversion index XSLT + css + icons</title>
 <link type="text/css" rel="stylesheet" href="home/documents.css"/>
 <style type="text/css">
+h1 {
+	text-align: center;	
+}
 table h3 {
 	width: auto;
 	border: none;
 	padding: 0px;
 }
+#screenshots img {
+	border: 1px dotted #666633;
+}
+#repos {
+	color: #336633;
+}
+#style {
+	color: #663333;
+}
 </style>
 </head>
 
 <body>
-<h1>Repos Style</h1>
-<p>A free  open source <em>stylesheet</em> for Subversion index in Apache. The XSLT and css is fully customizable. There is icons for folders and many different filetypes. Install Repos Style as-is or use as a sample XSLT to design your own. It also includes a simple <em>log viewer</em>. </p>
+<h1><span id="repos">Repos</span><span id="style">Style</span> &nbsp; &nbsp; </h1>
+<p>A free  open source <em>stylesheet</em> for the Subversion index web page. The XSLT and CSS is fully customizable. There is icons for folders and many different filetypes. Install Repos Style as-is or use as a sample XSLT to design your own. It also includes a simple <em>log viewer</em>. </p>
 <p><em>You need</em> the repository configured in Apache. See <a href="http://svnbook.red-bean.com/nightly/en/svn.serverconfig.httpd.html">the Subversion book</a>. Repos Style is installed with an <code>SVNIndexXSLT</code> directive. To use the log viewer you need PHP.</p>
 <p><em>The advantages</em> of using XSLT instead of a viewer like ViewSVN is that it is lightweight and that you use the <em>real URLs</em> in the directory listing. There is no viewer for older revisions, but you can customize the stylesheet to link to other tools. </p>
 <p>View <em>samples </em><a href="samples/">here</a>. </p>
 <table border="0" cellspacing="19">
-<tr><td><table style="border: 0px;">
+<tr><td><table style="border: 0px;" id="screenshots">
   <tr>
     <td><h3>From</h3></td>
     <td><img class="screenshot" src="svn-noxslt.png" alt="plain text svn index" title="The default subversion index page"/></td>
@@ -44,10 +56,28 @@ table h3 {
   <li>In the XSLT files (repos/log.xls and view/log.xsl if used), change the xsl:param &quot;static&quot; to your new folder name. </li>
 </ul>
 <h2>How to customize </h2>
-<p>&nbsp;</p>
+<p>Check the configuration section in the XSL files.</p>
+<p>It is good practice to have a start page on the repository host with links to each project's <code>trunk, branches, tags</code> folder(s).
+That way you don't need to give read access to repository root (which would be inherited by new projects by default).
+Repos Style supports a <em>startpage</em> concept, 
+meaning that when you click <code>up</code> from trunk you get to the server startpage.
+To disable this, empty the <code>startpage</code> parameter in repos.xsl.
+</p>
+<p>To customize the menu, edit the <code>commandbar</code> section of the xsl.
+To customize the buttons displayed on each row, edit the <code>actions</code> section of the <code>dir</code> or <code>file</code> templates.
+</p>
+<p>See the <a href="#contribute">development</a> section for how to contribute changes.
+</p>
 <h2><a name="download" id="download"></a>Download</h2>
-<p>Get the latest zipped distribution from the <a href="download/">download</a> folder.</p>
-<h2>Development</h2>
+<p>Get a zipped distribution from the <a href="download/">&raquo; <strong>download</strong> &laquo;</a> folder.</p>
+<h3>Version History</h3>
+<ol id="versions">
+<li><span class="datetime">2007-05-26</span><span class="revision">1.1</span>
+Documentation and build system with samples, no code changes.</li>
+<li><span class="datetime">2007-05-22</span><span class="revision">1.0</span>
+Initial undocumented release.</li>
+</ol>
+<h2><a name="contribute" id="contribute"></a>Development</h2>
 <p>This project is open source. You chan check out the contents at <a href="https://labs.repos.se/data/style/trunk/">labs.repos.se</a>. It is <a href="https://labs.repos.se/data/style/trunk/LICENSE-2.0.txt">Apache 2.0</a> license, while the icons are <a href="http://creativecommons.org/licenses/by-sa/2.0/">Creative Commons ShareAlike 2.0</a>. </p>
 <p>At present the developers are Staffan Olsson and Ermin Catic. We would happily accept other contributors to the project. Design and CSS expertise would be very welcome. Contact <em>i n f o</em> at reposstyle.com. </p>
 <p>&nbsp; </p>

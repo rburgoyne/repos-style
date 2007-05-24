@@ -1,8 +1,6 @@
-@CHARSET "UTF-8";
-
-/* page style */
+/* style derived from docstyle.org */
 body {
-	background-color: #557755;
+	background-color: #F4F4F4;
 	margin-left: 2%;
 	margin-right: 2%;
 	margin-top: 0px;
@@ -42,17 +40,21 @@ h2 {
 	color: #555555;
 }
 h3 {
-	color: #555555;
+	color: #555533;
 }
 p, ul, ol {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 1.0em;
+	font-size: 0.99em;
 	color: #333333;
 }
 em {
 	font-weight: bold;
 	font-style: normal;
-	color: #556060;
+	color: #666633;
+}
+code {
+	font-family: "Consolas", "Courier New", Courier, mono;
+	font-size: larger;
 }
 a {
 	color: #003399;
@@ -67,4 +69,26 @@ img {
 /* inside p: align right, outside p: right of page */
 .right {
 	float: right;
+}
+#versions {
+	list-style: none;
+}
+.revision {
+	color: #006600;
+	padding: 1px;
+	border: 1px dotted #cccc99;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.username {
+	color: #663300;
+	padding-left: 18px;
+	background: url(commands/16x16/user.png) left no-repeat;
+}
+.datetime {
+	color: #666666;
+}
+#versions .datetime {
+	font-size: 82.5%;
+	margin-left: -10px;
+	margin-right: 10px;
 }
