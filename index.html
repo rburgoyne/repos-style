@@ -51,9 +51,9 @@ table h3 {
 </ol>
 <h2>How to change install  path</h2>
 <ul>
-  <li>Rename the unzipped folder from /repos to anything </li>
-  <li>Update the SVNIndexXSLT </li>
-  <li>In the XSLT files (repos/log.xls and view/log.xsl if used), change the xsl:param &quot;static&quot; to your new folder name. </li>
+  <li>Rename the unzipped folder from <code>/repos</code> to anything </li>
+  <li>Update the <code>SVNIndexXSLT</code> directive in Apache conf</li>
+  <li>In the XSLT files (repos/log.xls and view/log.xsl), change the <code>xsl:param</code> &quot;<code>static</code>&quot; to your new folder name. </li>
 </ul>
 <h2>How to customize </h2>
 <p>Check the configuration section in the XSL files.</p>
@@ -66,7 +66,7 @@ To disable this, empty the <code>startpage</code> parameter in repos.xsl.
 <p>To customize the menu, edit the <code>commandbar</code> section of the xsl.
 To customize the buttons displayed on each row, edit the <code>actions</code> section of the <code>dir</code> and <code>file</code> xsl templates.
 </p>
-<p>See the <a href="#contribute">development</a> section on how to contribute changes.
+<p>See the <a href="#contribute">development</a> section on how to <em>contribute</em> changes.
 </p>
 <h2><a name="download" id="download"></a>Download</h2>
 <p>Get a zipped distribution from the <a href="download/">&raquo; <strong>download</strong> &laquo;</a> folder.</p>
@@ -78,9 +78,12 @@ Documentation, build system and samples, no code changes.</li>
 Initial undocumented release.</li>
 </ol>
 <h2><a name="contribute" id="contribute"></a>Development</h2>
-<p>This project is open source. You chan check out the contents at <a href="https://labs.repos.se/data/style/trunk/">labs.repos.se</a>. It is <a href="https://labs.repos.se/data/style/trunk/LICENSE-2.0.txt">Apache 2.0</a> license, while the icons are <a href="http://creativecommons.org/licenses/by-sa/2.0/">Creative Commons ShareAlike 2.0</a>. </p>
-<p>At present the developers are Staffan Olsson and Ermin Catic. We would happily accept other contributors to the project. Design and CSS expertise would be very welcome. Contact <em>i n f o</em> at reposstyle.com. </p>
-<p>&nbsp; </p>
+<p>This project is open source. You chan check out the contents at <a href="https://labs.repos.se/data/style/trunk/">labs.repos.se</a>. 
+It is <a href="https://labs.repos.se/data/style/trunk/LICENSE-2.0.txt">Apache 2.0</a> license, while the icons are <a href="http://creativecommons.org/licenses/by-sa/2.0/">Creative Commons ShareAlike 2.0</a>. 
+At present the maintainers are Staffan Olsson and Ermin Catic.</p>
+<p>For <em>support</em> and <em>discussion</em> please use the <em><a href="http://groups.google.com/group/reposstyle">mailing list</a>.
+</p>
+<p>&nbsp;</p>
 <p>&nbsp;</p>
 </body>
 </html>
