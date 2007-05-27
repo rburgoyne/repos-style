@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!-- folder contents -->
+<svn version="&amp; Repos Style"
+     href="http://www.reposstyle.com/">
+  <index rev="@Dev@" path="/samples">
+    <updir />
+	<dir name="- Sample results of XSLT transformation -" href="#" />
+    <file name="Short folder contents" href="index1.html" />
+	<file name="Short log" href="log1.html" />
+  </index>
+</svn>
