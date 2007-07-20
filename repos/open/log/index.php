@@ -17,6 +17,7 @@
 
 // === Print svn log --xml to response ===
 $repo = '@@Repository@@'; // repository root, no trailing slash
+$limit = 20; // limit log length for performance reasons, advice users to run svn client for more entries 
 
 // === configuration done ===
 if (strstr($repo,'@@')) die('The log script must be configured with a root URL');
@@ -24,12 +25,14 @@ if (strstr($repo,'@@')) die('The log script must be configured with a root URL')
 if (!isset($_REQUEST['target'])) die("Parameter 'target' is required");
 $url = $repo . $_REQUEST['target'];
 
-$cmd = "svn log --xml --verbose --incremental --non-interactive \"$url\" ";
+$cmd = 'svn log --xml --verbose --incremental --non-interactive';
+$cmd .= ' --limit '.escapeshellarg($limit);
+$cmd .= ' '.escapeshellarg($url);
  
 header('Content-Type: text/xml');
 echo('<?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="/repos/view/log.xsl"?>
-<log>
+<log limit="'.$limit.'">
 ');
 passthru($cmd);
 echo('</log>

@@ -57,6 +57,7 @@ limitations under the License.
 	<xsl:template match="log">
 		<xsl:call-template name="commandbar"/>
 		<xsl:call-template name="contents"/>
+		<xsl:call-template name="limit"/>
 		<xsl:call-template name="footer"/>
 	</xsl:template>
 	<xsl:template name="commandbar">
@@ -68,6 +69,13 @@ limitations under the License.
 		<h1>Repository history</h1>
 		<xsl:apply-templates select="logentry"/>
 		<p><a class="action" href="{$repoUrl}">&#171; return to repository</a></p>
+	</xsl:template>
+	<xsl:template name="limit">
+		<xsl:if test="@limit">
+			<xsl:if test="count(logentry) >= @limit">
+				<p id="limit">Limited to <xsl:value-of select="@limit"/> entries for performance reasons. Please use a Subversion client to get the full log.</p>
+			</xsl:if>
+		</xsl:if>
 	</xsl:template>
 	<xsl:template name="footer">
 		<div id="footer">
