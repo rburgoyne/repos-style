@@ -33,8 +33,8 @@ limitations under the License.
 	<xsl:param name="static">/repos/</xsl:param>
 	<!-- cssUrl: absolute url to css folder -->
 	<xsl:param name="cssUrl"><xsl:value-of select="$static"/>style/</xsl:param>
-	<!-- logUrl: empty -> no log application, absolute url -> enable 'history' action -->
-	<xsl:param name="logUrl"><xsl:value-of select="$static"/>open/log/</xsl:param>
+	<!-- logUrl: empty -> no log application, absolute url -> enable 'history' action, must allow appended query param -->
+	<xsl:param name="logUrl"><xsl:value-of select="$static"/>open/log/?</xsl:param>
 	<!-- startpage: empty -> standard behaviour, absolute url -> special handling of 'up' from trunk -->
 	<xsl:param name="startpage">/</xsl:param>
 	<!-- ===== end of configuration ===== -->
@@ -91,7 +91,7 @@ limitations under the License.
 			</xsl:if>
 		</xsl:if>
 		<xsl:if test="$logUrl">
-			<a id="history" class="command translate" href="{$logUrl}?target={/svn/index/@path}">folder history</a>
+			<a id="history" class="command translate" href="{$logUrl}&amp;target={/svn/index/@path}">folder history</a>
 		</xsl:if>
 		<a id="refresh" class="command translate" href="#" onclick="window.location.reload( true )">refresh</a>
 		</div>
@@ -161,7 +161,7 @@ limitations under the License.
 			<div class="actions">
 				<a id="open:{$id}" class="action" href="{@href}">open</a>
 				<xsl:if test="$logUrl">
-					<a id="history:{$id}" class="action" href="{$logUrl}?target={../@path}/{@href}">view history</a>
+					<a id="history:{$id}" class="action" href="{$logUrl}&amp;target={../@path}/{@href}">view history</a>
 				</xsl:if>
 			</div>
 			<a id="f:{$id}" class="file-{$filetype} file" href="{@href}">
