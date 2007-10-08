@@ -1,6 +1,6 @@
 <?php
 /**
- * Repos Style log reader (c) 2007  www.reposstyle.com
+ * Repos Style log reader (c) 2007 Staffan Olsson www.reposstyle.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,14 +21,17 @@ $limit = 20; // limit log length for performance reasons, advice users to run sv
 
 // === configuration done ===
 if (strstr($repo,'@@')) die('The log script must be configured with a root URL');
+is_numeric($limit) or die('The log script must be configured with a numeric limit');
 
-if (!isset($_REQUEST['target'])) die("Parameter 'target' is required");
+isset($_REQUEST['target']) or die("Parameter 'target' is required");
 $url = $repo . $_REQUEST['target'];
 
+// command line, injection safe
 $cmd = 'svn log --xml --verbose --incremental --non-interactive';
 $cmd .= ' --limit '.escapeshellarg($limit);
 $cmd .= ' '.escapeshellarg($url);
- 
+$cmd .= ' 2>&1';
+
 header('Content-Type: text/xml');
 echo('<?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="/repos/view/log.xsl"?>

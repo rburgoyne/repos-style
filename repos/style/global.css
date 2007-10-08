@@ -193,3 +193,6 @@ a.folder {
 .message {
 	font-style: italic;
 }
+.error {
+	color: #CC0000;
+}

@@ -67,6 +67,9 @@ limitations under the License.
 	</xsl:template>
 	<xsl:template name="contents">
 		<h1>Repository history</h1>
+		<xsl:if test="string-length(text()) > 1">
+			<p class="error"><xsl:call-template name="linebreak"/></p>
+		</xsl:if>
 		<xsl:apply-templates select="logentry"/>
 		<p><a class="action" href="{$repoUrl}">&#171; return to repository</a></p>
 	</xsl:template>
@@ -163,7 +166,7 @@ limitations under the License.
 		</div>
 	</xsl:template>
 	<xsl:template name="linebreak">
-		<xsl:param name="text"/>
+		<xsl:param name="text" select="text()"/>
 		<xsl:choose>
 			<xsl:when test="contains($text, '&#10;')">
 				<xsl:value-of select="substring-before($text, '&#10;')"/>
