@@ -220,6 +220,7 @@ limitations under the License.
 			<xsl:value-of select="'/'"/>
 			<xsl:call-template name="getFolderPathLinks">
 				<xsl:with-param name="folders" select="$rest"/>
+				<xsl:with-param name="return" select="substring-after($return,'/')"/>
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
