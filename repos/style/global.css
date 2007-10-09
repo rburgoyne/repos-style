@@ -175,8 +175,8 @@ a.file {
 a.folder {
 	color: #001133;
 }
-.path {
-	color: #333333;
+.project {
+	color: #660000;
 }
 .revision {
 	color: #006600;

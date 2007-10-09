@@ -90,22 +90,9 @@ limitations under the License.
 	<!-- directory listing -->
 	<xsl:template name="contents">
 		<xsl:param name="fullpath" select="concat(/svn/index/@path,'/')"/>
-		<xsl:param name="project">
-			<xsl:call-template name="getProjectName"/>
-		</xsl:param>
-		<xsl:param name="home">
-			<xsl:call-template name="getReverseUrl">
-				<xsl:with-param name="url" select="substring($fullpath, string-length($project)+3)"/>
-			</xsl:call-template>
-		</xsl:param>
 		<h2 id="path">
-			<a id="home" class="path" href="{$home}">
-				<span class="projectname">
-					<xsl:value-of select="$project"/>
-				</span>
-			</a>
 			<xsl:call-template name="getFolderPathLinks">
-				<xsl:with-param name="folders" select="substring($fullpath, string-length($project)+2)"/>
+				<xsl:with-param name="folders" select="$fullpath"/>
 			</xsl:call-template>
 			<!-- rev not asked for by users: <xsl:if test="@rev">
 			<xsl:value-of select="$spacer"/>
@@ -176,7 +163,7 @@ limitations under the License.
 		</span>
 		</div>
 	</xsl:template>
-	<xsl:template name="getProjectName">
+	<xsl:template name="getProjectName"><!-- deprecated -->
 		<xsl:param name="path" select="concat(/svn/index/@path,'/')"/>
 		<xsl:value-of select="substring-before(substring($path,2),'/')"/>
 	</xsl:template>
@@ -190,6 +177,14 @@ limitations under the License.
 			</xsl:call-template>
 		</xsl:param>
 		<xsl:param name="classadd">
+			<xsl:choose>
+				<xsl:when test="contains($tools,concat('/',$f,'/'))">
+					<xsl:value-of select="concat(' tool tool-',$f)"/>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:value-of select="' project'"/>
+				</xsl:otherwise>
+			</xsl:choose>
 			<xsl:if test="contains($tools,concat('/',$f,'/'))">
 				<xsl:value-of select="concat(' tool tool-',$f)"/>
 			</xsl:if>
@@ -210,17 +205,17 @@ limitations under the License.
 				<xsl:value-of select="$f"/>
 			</a>
 			<xsl:value-of select="'/'"/>
-			<xsl:if test="string-length($classadd)=0">
+			<xsl:if test="$classadd=' project'">
 				<xsl:call-template name="getFolderPathLinks">
 					<xsl:with-param name="folders" select="$rest"/>
 					<xsl:with-param name="return" select="substring-after($return,'/')"/>
 				</xsl:call-template>
 			</xsl:if>
-			<xsl:if test="string-length($classadd)>0">
+			<xsl:if test="$classadd!=' project'">
 				<xsl:call-template name="getFolderPathLinks">
 					<xsl:with-param name="folders" select="$rest"/>
 					<xsl:with-param name="return" select="substring-after($return,'/')"/>
-					<xsl:with-param name="classadd" select="' toolchild'"/>
+					<xsl:with-param name="classadd" select="''"/>
 				</xsl:call-template>
 			</xsl:if>
 		</xsl:if>

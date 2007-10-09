@@ -7,5 +7,8 @@
 	<dir name="- Sample results of XSLT transformation -" href="#" />
     <file name="Short folder contents" href="index1.html" />
 	<file name="Short log" href="log1.html" />
+	<file name="Tools: trunk, branches and tags" href="index-tools.html" />
+	<file name="Nested project structure" href="index-subproject.html" />
+	<file name="Trunk in repository root" href="index-doubletrunk.html" />
   </index>
 </svn>
