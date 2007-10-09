@@ -37,7 +37,7 @@ limitations under the License.
 	<xsl:param name="logUrl"><xsl:value-of select="$static"/>open/log/?</xsl:param>
 	<!-- startpage: empty -> standard behaviour, absolute url -> special handling of 'up' from trunk -->
 	<xsl:param name="startpage">/</xsl:param>
-	<!-- tools: name of recognized top level folders that should get css class -->
+	<!-- tools: name of recognized top level folders to get css tool-class -->
 	<xsl:param name="tools">/trunk/branches/tags/</xsl:param>
 	<!-- ===== end of configuration ===== -->
 	
@@ -92,7 +92,7 @@ limitations under the License.
 		<xsl:param name="fullpath" select="concat(/svn/index/@path,'/')"/>
 		<h2 id="path">
 			<xsl:call-template name="getFolderPathLinks">
-				<xsl:with-param name="folders" select="$fullpath"/>
+				<xsl:with-param name="folders" select="substring($fullpath,2)"/>
 			</xsl:call-template>
 			<!-- rev not asked for by users: <xsl:if test="@rev">
 			<xsl:value-of select="$spacer"/>
@@ -162,10 +162,6 @@ limitations under the License.
 		<xsl:text>&#160;</xsl:text>
 		</span>
 		</div>
-	</xsl:template>
-	<xsl:template name="getProjectName"><!-- deprecated -->
-		<xsl:param name="path" select="concat(/svn/index/@path,'/')"/>
-		<xsl:value-of select="substring-before(substring($path,2),'/')"/>
 	</xsl:template>
 	<xsl:template name="getFolderPathLinks">
 		<xsl:param name="folders"/>

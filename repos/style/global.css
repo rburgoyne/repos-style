@@ -38,7 +38,6 @@ h3 {
 	letter-spacing: 0.1em;
 }
 a {
-	color: #003399;
 	text-decoration: none;
 }
 a:hover {
@@ -172,11 +171,10 @@ span.action {
 a.file {
 	color: #001155;
 }
-a.folder {
+a.folder, #path a {
 	color: #001133;
 }
 .project {
-	color: #660000;
 }
 .revision {
 	color: #006600;
