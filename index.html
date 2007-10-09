@@ -12,7 +12,7 @@ urchinTracker();
 <link type="text/css" rel="stylesheet" href="home/documents.css"/>
 <style type="text/css">
 h1 {
-	text-align: center;	
+	text-align: center;
 }
 table h3 {
 	width: auto;
@@ -62,17 +62,15 @@ table h3 {
 </ol>
 <h2>How to change install  path</h2>
 <ul>
-  <li>Rename the unzipped folder from <code>/repos</code> to anything </li>
-  <li>Update the <code>SVNIndexXSLT</code> directive in Apache conf</li>
-  <li>In the XSLT files (repos/log.xls and view/log.xsl), change the <code>xsl:param</code> &quot;<code>static</code>&quot; to your new folder name. </li>
+  <li>Rename the unzipped folder <code>/repos</code> to something else.</li>
+  <li>Update the <code>SVNIndexXSLT</code> directive in Apache conf.</li>
+  <li>In the XSLT files (repos/log.xls and view/log.xsl), change the <code>xsl:param</code> &quot;<code>static</code>&quot; to your new folder name.</li>
 </ul>
 <h2>How to customize </h2>
 <p>Check the configuration section in the XSL files.</p>
 <p>It is good practice to have a start page on the repository host with links to each project's <code>trunk, branches, tags</code> folder(s).
 That way you don't need to give read access to repository root (which would be inherited to new projects by default).
-Repos Style supports a <em>startpage</em> concept, 
-meaning that when you click <code>up</code> from trunk you get to the server startpage.
-To disable this, empty the <code>startpage</code> parameter in repos.xsl.
+Repos Style XSLT has a <em>startpage</em> property to set a URL for the toolbar's &quot;home&quot; button.
 </p>
 <p>To customize the menu, edit the <code>commandbar</code> section of the xsl.
 To customize the buttons displayed on each row, edit the <code>actions</code> section of the <code>dir</code> and <code>file</code> xsl templates.
@@ -83,6 +81,10 @@ To customize the buttons displayed on each row, edit the <code>actions</code> se
 <p>Get a zipped distribution from the <a href="http://groups.google.com/group/reposstyle/files">&raquo; <strong>download</strong> &laquo;</a> folder.</p>
 <h3>Release History</h3>
 <ol id="versions">
+<li><span class="datetime">2007-10-09</span><span class="revision">1.2</span>
+Improved performance in path (breadcrumbs) template.
+Added detection of trunk+branches+tags folders, allowing special styling through CSS.
+Added a folder icon with a lock symbol for tags.</li>
 <li><span class="datetime">2007-05-26</span><span class="revision">1.1</span>
 Documentation, build system and samples, no code changes.</li>
 <li><span class="datetime">2007-05-22</span><span class="revision">1.0</span>

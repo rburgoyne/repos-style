@@ -32,6 +32,21 @@
 	padding-left: 30px;
 	margin-left: 10px;
 }
+/* svn special folders */
+#path .tool {
+	background-position: left center;
+	background-repeat: no-repeat;
+	padding-left: 17px;
+}
+#path .tool-trunk, .row .tool-trunk {
+	background-image: url('16x16/folder_trunk.png');
+}
+#path .tool-branches, .row .tool-branches {
+	background-image: url('16x16/folder_branches.png');
+}
+#path .tool-tags, .row .tool-tags {
+	background-image: url('16x16/folder_tags.png');
+}
 /* filetype icons */
 .file-zip { background-image: url('filetypes/16x16/zip.png');}
 .file-gz { background-image: url('filetypes/16x16/gz.png');}

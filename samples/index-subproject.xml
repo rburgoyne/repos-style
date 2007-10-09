@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="/repos/view/repos.xsl"?>
+<!DOCTYPE svn [
+  <!ELEMENT svn   (index)>
+  <!ATTLIST svn   version CDATA #REQUIRED
+                  href    CDATA #REQUIRED>
+  <!ELEMENT index (updir?, (file | dir)*)>
+  <!ATTLIST index name    CDATA #IMPLIED
+                  path    CDATA #IMPLIED
+                  rev     CDATA #IMPLIED>
+  <!ELEMENT updir EMPTY>
+  <!ELEMENT file  EMPTY>
+  <!ATTLIST file  name    CDATA #REQUIRED
+                  href    CDATA #REQUIRED>
+  <!ELEMENT dir   EMPTY>
+
+  <!ATTLIST dir   name    CDATA #REQUIRED
+                  href    CDATA #REQUIRED>
+]>
+<svn version="1.4.5 (r25188)"
+     href="http://subversion.tigris.org/">
+  <index rev="62" path="/Project A/Subproject B/trunk">
+    <updir />
+    <dir name="Inkscape 0.45.1" href="Inkscape%200.45.1/" />
+    <file name="SyntaxHighlighter_1.5.1.rar" href="SyntaxHighlighter_1.5.1.rar" />
+    <file name="jquery-1.2.1.min.js" href="jquery-1.2.1.min.js" />
+    <file name="pixel.gif" href="pixel.gif" />
+    <file name="securing-debian-howto.en.pdf" href="securing-debian-howto.en.pdf" />
+
+    <file name="tidy.exe" href="tidy.exe" />
+  </index>
+</svn>

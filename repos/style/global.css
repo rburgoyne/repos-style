@@ -131,6 +131,9 @@ span.action {
 #commandbar #refresh {
 	background-image: url('commands/16x16/refresh.png');
 }
+#commandbar #home {
+	background-image: url('commands/16x16/home.png');
+}
 #footer {
 	margin-top: 1.5em;
 	width: 100%;
@@ -173,7 +176,7 @@ a.folder {
 	color: #001133;
 }
 .path {
-	color: #113300;
+	color: #333333;
 }
 .revision {
 	color: #006600;

@@ -37,6 +37,8 @@ limitations under the License.
 	<xsl:param name="logUrl"><xsl:value-of select="$static"/>open/log/?</xsl:param>
 	<!-- startpage: empty -> standard behaviour, absolute url -> special handling of 'up' from trunk -->
 	<xsl:param name="startpage">/</xsl:param>
+	<!-- tools: name of recognized top level folders that should get css class -->
+	<xsl:param name="tools">/trunk/branches/tags/</xsl:param>
 	<!-- ===== end of configuration ===== -->
 	
 	<xsl:param name="spacer" select="' &#160; '"/>
@@ -72,23 +74,12 @@ limitations under the License.
 		</div>
 	</xsl:template>
 	<xsl:template name="commandbar">
-		<xsl:param name="parentpath">
-			<xsl:choose>
-				<xsl:when test="'if parentpath is empty the up button will be disabled'='no'"></xsl:when>
-				<xsl:when test="string-length($startpage)>0 and contains(/svn/index/@path,'/trunk') and substring-after(/svn/index/@path, '/trunk')=''">
-					<xsl:value-of select="$startpage"/>
-				</xsl:when>
-				<xsl:otherwise>../</xsl:otherwise>
-			</xsl:choose>
-		</xsl:param>
 		<div id="commandbar">
+		<xsl:if test="$startpage">
+			<a id="home" class="command translate" href="{$startpage}">home</a>
+		</xsl:if>
 		<xsl:if test="/svn/index/updir">
-			<xsl:if test="string-length($parentpath)>0">
-				<a id="parent" class="command translate" href="{$parentpath}">up</a>
-			</xsl:if>
-			<xsl:if test="string-length($parentpath)=0">
-				<span id="parent" class="command translate">up</span>
-			</xsl:if>
+			<a id="parent" class="command translate" href="../">up</a>
 		</xsl:if>
 		<xsl:if test="$logUrl">
 			<a id="history" class="command translate" href="{$logUrl}target={/svn/index/@path}">folder history</a>
@@ -99,26 +90,22 @@ limitations under the License.
 	<!-- directory listing -->
 	<xsl:template name="contents">
 		<xsl:param name="fullpath" select="concat(/svn/index/@path,'/')"/>
-		<xsl:param name="trunk">
-			<xsl:call-template name="getTrunkPath">
-				<xsl:with-param name="path" select="$fullpath"/>
-			</xsl:call-template>
+		<xsl:param name="project">
+			<xsl:call-template name="getProjectName"/>
 		</xsl:param>
-		<xsl:param name="folders" select="substring($fullpath, string-length($trunk)+2)"/>
 		<xsl:param name="home">
 			<xsl:call-template name="getReverseUrl">
-				<xsl:with-param name="url" select="$folders"/>
+				<xsl:with-param name="url" select="substring($fullpath, string-length($project)+3)"/>
 			</xsl:call-template>
 		</xsl:param>
-		<h2>
+		<h2 id="path">
 			<a id="home" class="path" href="{$home}">
 				<span class="projectname">
-					<xsl:call-template name="getProjectName"/>
+					<xsl:value-of select="$project"/>
 				</span>
 			</a>
-			<xsl:value-of select="$spacer"/>
 			<xsl:call-template name="getFolderPathLinks">
-				<xsl:with-param name="folders" select="$folders"/>
+				<xsl:with-param name="folders" select="substring($fullpath, string-length($project)+2)"/>
 			</xsl:call-template>
 			<!-- rev not asked for by users: <xsl:if test="@rev">
 			<xsl:value-of select="$spacer"/>
@@ -202,44 +189,41 @@ limitations under the License.
 				<xsl:with-param name="url" select="$rest"/>
 			</xsl:call-template>
 		</xsl:param>
+		<xsl:param name="classadd">
+			<xsl:if test="contains($tools,concat('/',$f,'/'))">
+				<xsl:value-of select="concat(' tool tool-',$f)"/>
+			</xsl:if>
+		</xsl:param>
 		<xsl:param name="id">
 			<xsl:call-template name="getFileID">
 				<xsl:with-param name="filename" select="$return"/>
 			</xsl:call-template>
 		</xsl:param>
 		<xsl:if test="not(string-length($rest)>0)">
-			<span id="folder" class="path">
+			<span id="folder" class="path{$classadd}">
 				<xsl:value-of select="$f"/>
 				<xsl:value-of select="'/'"/>
 			</span>
 		</xsl:if>
 		<xsl:if test="string-length($rest)>0">
-			<a class="path" id="{$id}" href="{$return}">
+			<a id="{$id}" href="{$return}" class="path{$classadd}">
 				<xsl:value-of select="$f"/>
 			</a>
 			<xsl:value-of select="'/'"/>
-			<xsl:call-template name="getFolderPathLinks">
-				<xsl:with-param name="folders" select="$rest"/>
-				<xsl:with-param name="return" select="substring-after($return,'/')"/>
-			</xsl:call-template>
-		</xsl:if>
-	</xsl:template>
-	<xsl:template name="getTrunkPath">
-		<xsl:param name="path" select="concat(/svn/index/@path,'/')"/>
-		<xsl:param name="this" select="substring-before(substring($path, 2), '/')"/>
-		<xsl:value-of select="$this"/>
-		<xsl:value-of select="'/'"/>
-		<xsl:choose>
-			<xsl:when test="contains($this, 'trunk')">
-			</xsl:when>
-			<xsl:when test="not(contains($path, '/'))">
-			</xsl:when>
-			<xsl:when test="string-length($this)>0 and contains($path, '/trunk')">
-				<xsl:call-template name="getTrunkPath">
-					<xsl:with-param name="path" select="substring-after($path,$this)"/>
+			<xsl:if test="string-length($classadd)=0">
+				<xsl:call-template name="getFolderPathLinks">
+					<xsl:with-param name="folders" select="$rest"/>
+					<xsl:with-param name="return" select="substring-after($return,'/')"/>
 				</xsl:call-template>
-			</xsl:when>
-		</xsl:choose>
+			</xsl:if>
+			<xsl:if test="string-length($classadd)>0">
+				<xsl:call-template name="getFolderPathLinks">
+					<xsl:with-param name="folders" select="$rest"/>
+					<xsl:with-param name="return" select="substring-after($return,'/')"/>
+					<xsl:with-param name="classadd" select="' toolchild'"/>
+				</xsl:call-template>
+			</xsl:if>
+		</xsl:if>
 	</xsl:template>
 	<xsl:template name="getReverseUrl">
 		<xsl:param name="url"/>
