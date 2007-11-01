@@ -26,7 +26,7 @@ limitations under the License.
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml" version="1.0">
 	<xsl:output method="html" encoding="UTF-8" omit-xml-declaration="no" indent="no"
 		doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"/>
-	<xsl:param name="reposstyle-version">@Dev@</xsl:param>
+	<xsl:param name="reposstyle-version">1.2tb</xsl:param>
 	
 	<!-- === repos style configuration === -->
 	<!-- static: absolute url to style application -->
@@ -55,6 +55,24 @@ limitations under the License.
 				<xsl:call-template name="styletag"/>
 			</head>
 			<body class="repository xml">
+				<!--- tgtb 10/30/2007: Added this script to make it work with more than one repository.
+				Must also modify the "repo" variable in the index.php to NOT include the repository name.
+				Also set the SVN root URI below.
+				-->
+				<script language="JavaScript" type="text/javascript" implements-prefix="tgtb"> 
+					// Use the XSLT variable to initialize the location of the php that will 
+					// retrieve the history
+					var tempUrl = '<xsl:copy-of select="$logUrl" />';
+					var svnRoot = "svn/"; // Subversion root folder level with trailing slash from URL
+					function getHistory(ref)
+					{
+						tempUrl = tempUrl.concat("target=");
+						var docUrl = document.URL;
+						var targetUrl = tempUrl.concat(docUrl.substr(svnRoot.length - 1 + docUrl.search(svnRoot)));
+						targetUrl = targetUrl.concat(ref);
+						window.location.assign(targetUrl);		
+					}
+				</script>
 				<xsl:apply-templates select="svn"/>
 			</body>
 		</html>
@@ -82,7 +100,8 @@ limitations under the License.
 			<a id="parent" class="command translate" href="../">up</a>
 		</xsl:if>
 		<xsl:if test="$logUrl">
-			<a id="history" class="command translate" href="{$logUrl}target={/svn/index/@path}">folder history</a>
+			<!--- <a id="history" class="command translate" href="{$logUrl}target={/svn/index/@path}">folder history</a> -->
+			<a id="history" class="command translate" href="javascript:getHistory('')">folder history</a>
 		</xsl:if>
 		<a id="refresh" class="command translate" href="#" onclick="window.location.reload( true )">refresh</a>
 		</div>
@@ -91,9 +110,17 @@ limitations under the License.
 	<xsl:template name="contents">
 		<xsl:param name="fullpath" select="concat(/svn/index/@path,'/')"/>
 		<h2 id="path">
-			<xsl:call-template name="getFolderPathLinks">
-				<xsl:with-param name="folders" select="substring($fullpath,2)"/>
-			</xsl:call-template>
+			<!--- tgtb 10/31/2007 - fix top repo collection listing -->
+			<xsl:choose> 
+				<xsl:when test="/svn/index/updir">
+					<xsl:call-template name="getFolderPathLinks">
+						<xsl:with-param name="folders" select="substring($fullpath,2)"/>
+					</xsl:call-template>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:value-of select="/svn/index/@path"/>
+				</xsl:otherwise>
+			</xsl:choose>
 			<!-- rev not asked for by users: <xsl:if test="@rev">
 			<xsl:value-of select="$spacer"/>
 				<span class="revision">
@@ -135,7 +162,10 @@ limitations under the License.
 			<div class="actions">
 				<a id="open:{$id}" class="action" href="{@href}">open</a>
 				<xsl:if test="$logUrl">
-					<a id="history:{$id}" class="action" href="{$logUrl}target={../@path}/{@href}">view history</a>
+					<!-- tgtb 10/31/2007: replaced the following with a more dynamic URL that will work 
+					with more than one repository -->
+					<!-- <a id="history:{$id}" class="action" href="{$logUrl}target={../@path}/{@href}">view history</a> -->
+					<a id="history:{$id}" class="action" href="javascript:getHistory('{@href}')">view history</a>
 				</xsl:if>
 			</div>
 			<a id="f:{$id}" class="file-{$filetype} file" href="{@href}">

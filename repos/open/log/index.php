@@ -16,7 +16,7 @@
 */
 
 // === Print svn log --xml to response ===
-$repo = '@@Repository@@'; // repository root, no trailing slash
+$repo = '@@Repository@@'; // repository root or repo collection root, no trailing slash
 $limit = 20; // limit log length for performance reasons, advice users to run svn client for more entries 
 
 // === configuration done ===
