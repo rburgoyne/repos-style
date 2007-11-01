@@ -26,9 +26,11 @@ limitations under the License.
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml" version="1.0">
 	<xsl:output method="html" encoding="UTF-8" omit-xml-declaration="no" indent="no"
 		doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"/>
-	<xsl:param name="reposstyle-version">1.2tb</xsl:param>
+	<xsl:param name="reposstyle-version">@Dev@</xsl:param>
 	
 	<!-- === repos style configuration === -->
+	<!-- rootUrl: root location of svn repository with trailing slash -->
+	<xsl:param name="rootUrl">svn/</xsl:param>
 	<!-- static: absolute url to style application -->
 	<xsl:param name="static">/repos/</xsl:param>
 	<!-- cssUrl: absolute url to css folder -->
@@ -63,7 +65,7 @@ limitations under the License.
 					// Use the XSLT variable to initialize the location of the php that will 
 					// retrieve the history
 					var tempUrl = '<xsl:copy-of select="$logUrl" />';
-					var svnRoot = "svn/"; // Subversion root folder level with trailing slash from URL
+					var svnRoot = '<xsl:copy-of select="$rootUrl" />'; // Subversion root folder level with trailing slash from URL
 					function getHistory(ref)
 					{
 						tempUrl = tempUrl.concat("target=");
