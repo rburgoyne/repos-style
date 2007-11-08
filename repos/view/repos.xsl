@@ -94,7 +94,7 @@ limitations under the License.
 			<xsl:call-template name="getFolderPathLinks">
 				<xsl:with-param name="folders" select="substring($fullpath,2)"/>
 			</xsl:call-template>
-			<!-- rev not asked for by users: <xsl:if test="@rev">
+			<!-- rev found in footer instad - <xsl:if test="@rev">
 			<xsl:value-of select="$spacer"/>
 				<span class="revision">
 					<xsl:value-of select="@rev"/>
@@ -181,9 +181,6 @@ limitations under the License.
 					<xsl:value-of select="' project'"/>
 				</xsl:otherwise>
 			</xsl:choose>
-			<xsl:if test="contains($tools,concat('/',$f,'/'))">
-				<xsl:value-of select="concat(' tool tool-',$f)"/>
-			</xsl:if>
 		</xsl:param>
 		<xsl:param name="id">
 			<xsl:call-template name="getFileID">
