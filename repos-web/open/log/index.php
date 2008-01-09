@@ -34,7 +34,7 @@ $cmd .= ' 2>&1';
 
 header('Content-Type: text/xml');
 echo('<?xml version="1.0"?>
-<?xml-stylesheet type="text/xsl" href="/repos/view/log.xsl"?>
+<?xml-stylesheet type="text/xsl" href="/repos-web/view/log.xsl"?>
 <log limit="'.$limit.'">
 ');
 passthru($cmd);
