@@ -155,14 +155,20 @@ span.action {
 .n0, .n1, .n2, .n3 {
 	background: url(rowbackground.png) top repeat-x;
 }
-.row {
+ul.index {
+	padding: 0;
+	margin: 0;
+}
+.index li {
+	list-style: none;
 	padding: 1px;
+	margin: 0;
 	border-bottom: 1px solid #FFFFFF;
 }
-.row:hover {
+.index li:hover {
 	border-bottom: 1px dashed #CCCC99;
 }
-.row div.actions {
+.index li .actions {
 	display: inline;
 	position: absolute;
 	left: 36em;

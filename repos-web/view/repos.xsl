@@ -101,19 +101,21 @@ limitations under the License.
 				</span>
 			</xsl:if> -->
 		</h2>
-		<xsl:apply-templates select="dir">
-			<xsl:sort select="@name"/>
-		</xsl:apply-templates>
-		<xsl:apply-templates select="file">
-			<xsl:sort select="@name"/>
-		</xsl:apply-templates>
+		<ul class="index">
+			<xsl:apply-templates select="dir">
+				<xsl:sort select="@name"/>
+			</xsl:apply-templates>
+			<xsl:apply-templates select="file">
+				<xsl:sort select="@name"/>
+			</xsl:apply-templates>
+		</ul>
 	</xsl:template>
 	<xsl:template match="dir">
 		<xsl:param name="id">
 			<xsl:call-template name="getFileID"/>
 		</xsl:param>
 		<xsl:param name="n" select="position() - 1"/>
-		<div id="row:{$id}" class="row n{$n mod 4}">
+		<li id="row:{$id}" class="n{$n mod 4}">
 			<div class="actions">
 				<a id="open:{$id}" class="action" href="{@href}">open</a>
 			</div>
@@ -121,7 +123,7 @@ limitations under the License.
 				<xsl:value-of select="@name"/>
 				<!-- <xsl:value-of select="'/'"/> -->
 			</a>
-		</div>
+		</li>
 	</xsl:template>
 	<xsl:template match="file">
 		<xsl:param name="filetype">
@@ -131,7 +133,7 @@ limitations under the License.
 			<xsl:call-template name="getFileID"/>
 		</xsl:param>
 		<xsl:param name="n" select="count(/svn/index/dir) + position() - 1"/>
-		<div id="row:{$id}" class="row n{$n mod 4}">
+		<li id="row:{$id}" class="n{$n mod 4}">
 			<div class="actions">
 				<a id="open:{$id}" class="action" href="{@href}">open</a>
 				<xsl:if test="$logUrl">
@@ -141,7 +143,7 @@ limitations under the License.
 			<a id="f:{$id}" class="file-{$filetype} file" href="{@href}">
 				<xsl:value-of select="@name"/>
 			</a>
-		</div>
+		</li>
 	</xsl:template>
 	<xsl:template name="footer">
 		<div id="footer">

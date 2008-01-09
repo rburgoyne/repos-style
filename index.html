@@ -55,16 +55,16 @@ table h3 {
 </table>
 <p>Start by verifying that your http repository is up and running. </p>
 <ol><li><a href="#download">Download</a> Repos Style zip </li>
-  <li>Unzip to the document root of the repository host (this creates a folder /repos)</li>
-  <li>In the Apache config, set <code>SVNIndexXSLT &quot;/repos/view/repos.xsl&quot;</code></li>
+  <li>Unzip to the document root of the repository host (this creates a folder /repos-web)</li>
+  <li>In the Apache config, set <code>SVNIndexXSLT &quot;/repos-web/view/repos.xsl&quot;</code></li>
   <li>Reload Apache</li>
-  <li>Check your   http URL again</li>
+  <li>Check your http URL again</li>
 </ol>
-<h2>How to change install  path</h2>
+<h2>How to change install path</h2>
 <ul>
-  <li>Rename the unzipped folder <code>/repos</code> to something else.</li>
+  <li>Rename the unzipped folder <code>/repos-web</code> to something else.</li>
   <li>Update the <code>SVNIndexXSLT</code> directive in Apache conf.</li>
-  <li>In the XSLT files (repos/log.xls and view/log.xsl), change the <code>xsl:param</code> &quot;<code>static</code>&quot; to your new folder name.</li>
+  <li>In the XSLT files (view/repos.xls and view/log.xsl), change the <code>xsl:param</code> &quot;<code>static</code>&quot; to your new folder name.</li>
 </ul>
 <h2>How to customize </h2>
 <p>Check the configuration section in the XSL files.</p>
@@ -81,6 +81,11 @@ To customize the buttons displayed on each row, edit the <code>actions</code> se
 <p>Get a zipped distribution from the <a href="http://groups.google.com/group/reposstyle/files">&raquo; <strong>download</strong> &laquo;</a> folder.</p>
 <h3>Release History</h3>
 <ol id="versions">
+<li><span class="datetime">2008-01-09</span><span class="revision">1.3</span>
+Renamed default install folder to <code>repos-web</code> to avoid conflict with common svn parent path /repos.
+In the listings: changed from divs to the more semantically correct ul/li.
+</li>
+
 <li><span class="datetime">2007-10-09</span><span class="revision">1.2</span>
 Improved performance in path (breadcrumbs) template.
 Added detection of trunk+branches+tags folders, allowing special styling through CSS.
