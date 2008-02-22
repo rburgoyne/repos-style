@@ -33,18 +33,18 @@
 	margin-left: 10px;
 }
 /* svn special folders */
-.path.tool {
+.tool {
 	background-position: left center;
 	background-repeat: no-repeat;
 	padding-left: 17px;
 }
-.path.tool-trunk, .row .tool-trunk {
+.tool-trunk {
 	background-image: url('16x16/folder_trunk.png');
 }
-.path.tool-branches, .row .tool-branches {
+.tool-branches {
 	background-image: url('16x16/folder_branches.png');
 }
-.path.tool-tags, .row .tool-tags {
+.tool-tags {
 	background-image: url('16x16/folder_tags.png');
 }
 /* filetype icons */
