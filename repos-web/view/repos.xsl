@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!--
-Repos Style (c) 2004-2007 Staffan Olsson www.reposstyle.com
+Repos Style (c) 2004-2007 Staffan Olsson reposstyle.com
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,18 +14,19 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-  ==== repos.se: Subversion directory listing layout ====
+  ==== reposstyle.com: Subversion folder index style ====
   The logic for this stylesheet, commandbar, id-generation,
   folderPathLinks and filetypes are all ideas from repos.se.
   
-  To be set as SVNIndexXSLT in repository conf.
+  To be used as SVNIndexXSLT in repository conf.
   Used at all directory levels, so urls must be absolute.
   Note that browser transformations only work if the
   stylesheet is read from the same domain as the XML
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml" version="1.0">
-	<xsl:output method="html" encoding="UTF-8" omit-xml-declaration="no" indent="no"
-		doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"/>
+	<xsl:output method="html" encoding="utf-8" omit-xml-declaration="no" indent="no"
+		doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
+		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
 	<xsl:param name="reposstyle-version">@Dev@</xsl:param>
 	
 	<!-- === repos style configuration === -->
@@ -147,7 +148,7 @@ limitations under the License.
 	</xsl:template>
 	<xsl:template name="footer">
 		<div id="footer">
-		<span>Version <span class="revision"><xsl:value-of select="@rev"/></span> - </span>
+		<span>Revision <span class="revision"><xsl:value-of select="@rev"/></span> - </span>
 		<span><a href="http://www.reposstyle.com/" target="_blank">Repos&#160;Style</a>&#160;<xsl:value-of select="$reposstyle-version"/> 
 		&amp; <a href="http://www.kde-look.org/content/show.php?content=16479" target="_blank">Cezanne&#160;icons</a></span>
 		<span id="badges">

@@ -135,10 +135,9 @@ span.action {
 }
 #footer {
 	margin-top: 1.5em;
+	padding: 0.2em;
 	width: 100%;
-	bottom: 10px;
-	height: 20px;
-	float: left;
+	clear: both;
 	border-top: 1px solid #CCCCCC;
 	background-color: #F4F4F4;
 	color: #999999;

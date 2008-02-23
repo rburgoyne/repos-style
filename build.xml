@@ -4,7 +4,7 @@
    </description>
 	
 	<!-- project info -->
-	<property name="version" value="1.3" />
+	<property name="version" value="1.4" />
 	<filter token="Dev" value="${version}"/>
 	
 	<!-- configuration -->
@@ -46,11 +46,21 @@
 		</xslt>
 	</target>
 	
-	<target name="test" depends="samples">
+	<target name="runtest" depends="samples, test.xhtml">
 		
 	</target>
 	
-	<target name="dist" depends="test" description="generate the distribution">
+	<target name="test.xhtml">
+		<echo message="Checking that all html is valid xml"/>
+		<xmlvalidate failonerror="yes">
+			<fileset dir="${basedir}">
+				<include name="*.html"/>
+				<!-- can not validate the sampels because it depends too much on the xslt library used -->
+			</fileset>
+		</xmlvalidate>
+	</target>
+	
+	<target name="dist" depends="runtest" description="generate the distribution">
 		<mkdir dir="${dist}/download"/>
 		<copy todir="${dist}">
 			<fileset dir="${basedir}">
