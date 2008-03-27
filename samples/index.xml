@@ -12,5 +12,6 @@
 	<file name="No tools (repository not using trunk/branches/tags convention)" href="index-notools.html" />
 	<file name="Nested project structure" href="index-subproject.html" />
 	<file name="Trunk in repository root" href="index-doubletrunk.html" />
+	<file name="SVNParentPath with SVNListParentPath" href="index-svnlistparentpath.html" />
   </index>
 </svn>

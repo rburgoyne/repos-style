@@ -2,18 +2,18 @@
 	<description>
 		Build and package the Repos Style project
    </description>
-	
+
 	<!-- project info -->
-	<property name="version" value="1.4" />
+	<property name="version" value="1.5" />
 	<filter token="Dev" value="${version}"/>
-	
+
 	<!-- configuration -->
 	<property name="src" location="repos-web" />
 	<property name="test" location="samples" />
 	<property name="build" location="target" description="Main folder for build output"/>
 	<property name="dist" value="${build}/dist" description="Everything that should be copied to web"/>
 	<property name="app" value="repos-web" description="Name of the folder inside zip"/>
-	
+
 	<target name="init">
 		<tstamp />
 		<mkdir dir="${build}" />
@@ -45,11 +45,11 @@
 			<outputproperty name="indent" value="yes"/>
 		</xslt>
 	</target>
-	
+
 	<target name="runtest" depends="samples, test.xhtml">
-		
+
 	</target>
-	
+
 	<target name="test.xhtml">
 		<echo message="Checking that all html is valid xml"/>
 		<xmlvalidate failonerror="yes">
@@ -59,7 +59,7 @@
 			</fileset>
 		</xmlvalidate>
 	</target>
-	
+
 	<target name="dist" depends="runtest" description="generate the distribution">
 		<mkdir dir="${dist}/download"/>
 		<copy todir="${dist}">
