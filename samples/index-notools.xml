@@ -19,7 +19,7 @@
 ]>
 <svn version="1.4.5 (r25188)"
      href="http://subversion.tigris.org/">
-  <index rev="63" path="/Project A/Subproject B/no/tool/to/be/seen/">
+  <index rev="63" path="/Project A/Subproject B/no/tool/to/be/seen">
     <updir />
     <file name="README" href="README" />
     <dir name="branches" href="the-above-should-not-be-project-class/" />
