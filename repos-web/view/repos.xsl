@@ -17,7 +17,7 @@ limitations under the License.
   ==== reposstyle.com: Subversion folder index style ====
   The logic for this stylesheet, commandbar, id-generation,
   folderPathLinks and filetypes are all ideas from repos.se.
-  
+
   To be used as SVNIndexXSLT in repository conf.
   Used at all directory levels, so urls must be absolute.
   Note that browser transformations only work if the
@@ -28,7 +28,7 @@ limitations under the License.
 		doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
 		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
 	<xsl:param name="reposstyle-version">@Dev@</xsl:param>
-	
+
 	<!-- === repos style configuration === -->
 	<!-- static: absolute url to style application -->
 	<xsl:param name="static">/repos-web/</xsl:param>
@@ -41,7 +41,7 @@ limitations under the License.
 	<!-- tools: name of recognized top level folders to get css tool-class -->
 	<xsl:param name="tools">/trunk/branches/tags/</xsl:param>
 	<!-- ===== end of configuration ===== -->
-	
+
 	<xsl:param name="spacer" select="' &#160; '"/>
 	<xsl:template match="/">
 		<html xmlns="http://www.w3.org/1999/xhtml">
@@ -93,7 +93,7 @@ limitations under the License.
 		<xsl:param name="fullpath" select="concat(/svn/index/@path,'/')"/>
 		<h2 id="path">
 			<xsl:call-template name="getFolderPathLinks">
-				<xsl:with-param name="folders" select="substring($fullpath,2)"/>
+				<xsl:with-param name="folders" select="$fullpath"/>
 			</xsl:call-template>
 			<!-- rev found in footer instad - <xsl:if test="@rev">
 			<xsl:value-of select="$spacer"/>
@@ -149,7 +149,7 @@ limitations under the License.
 	<xsl:template name="footer">
 		<div id="footer">
 		<span>Revision <span class="revision"><xsl:value-of select="@rev"/></span> - </span>
-		<span><a href="http://www.reposstyle.com/" target="_blank">Repos&#160;Style</a>&#160;<xsl:value-of select="$reposstyle-version"/> 
+		<span><a href="http://www.reposstyle.com/" target="_blank">Repos&#160;Style</a>&#160;<xsl:value-of select="$reposstyle-version"/>
 		&amp; <a href="http://www.kde-look.org/content/show.php?content=16479" target="_blank">Cezanne&#160;icons</a></span>
 		<span id="badges">
 		</span>
@@ -194,7 +194,7 @@ limitations under the License.
 			<span id="folder" class="path{$classadd}">
 				<xsl:value-of select="$f"/>
 			</span>
-			<span class="separator"><xsl:value-of select="'/'"/></span>
+			<!-- trailing slash: <span class="separator"><xsl:value-of select="'/'"/></span> -->
 		</xsl:if>
 		<xsl:if test="string-length($rest)>0">
 			<a id="{$id}" href="{$return}" class="path{$classadd}">
