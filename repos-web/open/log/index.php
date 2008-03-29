@@ -69,7 +69,7 @@ is_numeric($limit) or die('The log script must be configured with a numeric limi
 
 $url = $repo . $target;
 
-// command line, injection safe, svn must be in path
+// command line, injection safe, svn must be in path, assumes utf-8 shell
 $cmd = $svn.' log --xml --verbose --incremental --non-interactive';
 $cmd .= ' --limit '.escapeshellarg($limit);
 $cmd .= ' '.escapeshellarg($url);
