@@ -79,9 +79,9 @@ limitations under the License.
 		<xsl:if test="$startpage">
 			<a id="home" class="command translate" href="{$startpage}">home</a>
 		</xsl:if>
-		<xsl:if test="/svn/index/updir">
+		<!-- <xsl:if test="/svn/index/updir"> -->
 			<a id="parent" class="command translate" href="../">up</a>
-		</xsl:if>
+		<!-- </xsl:if> -->
 		<xsl:if test="$logUrl">
 			<a id="history" class="command translate" href="{$logUrl}target={/svn/index/@path}">folder history</a>
 		</xsl:if>
