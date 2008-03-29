@@ -82,7 +82,8 @@ limitations under the License.
 		<!-- <xsl:if test="/svn/index/updir"> -->
 			<a id="parent" class="command translate" href="../">up</a>
 		<!-- </xsl:if> -->
-		<xsl:if test="$logUrl">
+		<!-- <xsl:if test="$logUrl"> add @rev>0 to hide log for SVNParentPath and empty repositories -->
+		<xsl:if test="$logUrl and @rev>0">
 			<a id="history" class="command translate" href="{$logUrl}target={/svn/index/@path}">folder history</a>
 		</xsl:if>
 		<a id="refresh" class="command translate" href="#" onclick="window.location.reload( true )">refresh</a>

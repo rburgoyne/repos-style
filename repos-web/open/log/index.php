@@ -25,8 +25,7 @@ $xslt = '/repos-web/view/log.xsl';
 // no trailing slash
 $repo = '@@Repository@@';
 // OR set a parent url instead, corresponding to SVNParentPath, no trailing slash
-//$repoparent = '@@RepoParent@@';
-$repoparent = 'http://localhost/data';
+$repoparent = '@@RepoParent@@';
 
 // limit log length for performance reasons (users should run svn client for more entries)
 $limit = 20;
