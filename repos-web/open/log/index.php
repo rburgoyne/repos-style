@@ -48,7 +48,7 @@ if (!strstr($repoparent,'@@') && strstr($repo,'@@')) {
 	if (isset($_REQUEST['reponame'])) {
 		$repo = $repoparent.'/'.$_REQUEST['reponame'];
 	} else if (isset($_SERVER['HTTP_REFERER'])) {
-		$referer = $_SERVER['HTTP_REFERER'];
+		$referer = rawurldecode($_SERVER['HTTP_REFERER']);
 		if (preg_match('/\/([^\/]+)'.preg_quote($target,'/').'\/?$/',$referer,$matches)) {
 			$reponame = $matches[1];
 			// make bookmarkable if possible
