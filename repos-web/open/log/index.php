@@ -31,6 +31,9 @@ $repoparent = 'http://localhost/data';
 // limit log length for performance reasons (users should run svn client for more entries)
 $limit = 20;
 
+// svn executable, command name in PATH or absolute path
+$svn = 'svn';
+
 // === configuration done, get parameters ===
 
 isset($_REQUEST['target']) or die("Parameter 'target' is required");
@@ -69,8 +72,8 @@ is_numeric($limit) or die('The log script must be configured with a numeric limi
 
 $url = $repo . $target;
 
-// command line, injection safe
-$cmd = 'svn log --xml --verbose --incremental --non-interactive';
+// command line, injection safe, svn must be in path
+$cmd = $svn.' log --xml --verbose --incremental --non-interactive';
 $cmd .= ' --limit '.escapeshellarg($limit);
 $cmd .= ' '.escapeshellarg($url);
 $cmd .= ' 2>&1';
