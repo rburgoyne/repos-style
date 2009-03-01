@@ -1,0 +1,2557 @@
+<?xml version="1.0"?>
+<log>
+<logentry
+   revision="30113">
+<author>niqueco</author>
+<date>2008-03-29T02:58:23.698413Z</date>
+<msg>Spanish translation updated.
+
+* subversion/po/es.po:
+  Some translation updates.
+</msg>
+</logentry>
+<logentry
+   revision="30112">
+<author>kfogel</author>
+<date>2008-03-28T23:10:40.851372Z</date>
+<msg>* www/svn_1.5_releasenotes.html: Expand, rearrange, eliminate some
+    material, in general try to get this thing into shape.
+
+* CHANGES (1.5.0): Note the new "resolve" command.
+</msg>
+</logentry>
+<logentry
+   revision="30110">
+<author>xsteve</author>
+<date>2008-03-28T21:55:04.877262Z</date>
+<msg>Show the state of a file under svn control via a color dot in the mode line
+
+* trunk/contrib/client-side/emacs/psvn.el:
+  (svn-status-fancy-file-state-in-modeline): New variable. When it is set
+    to t, display a colored dot in the modeline for each file under
+    svn control. When it is green, the file is up to date. When it is
+    red, the file is edited
+  (svn-status-state-mark-modeline-dot, svn-status-install-state-mark-modeline,
+   svn-status-uninstall-state-mark-modeline, 
+   svn-status-update-state-mark-tooltip, svn-status-update-state-mark,
+   svn-status-update-modeline): New functions
+   This functionality is inspired by emacs test-runner
+    (http://nschum.de/src/emacs/test-runner/) and git-emacs
+    (http://tsgates.cafe24.com/git/git-emacs.html)
+</msg>
+</logentry>
+<logentry
+   revision="30109">
+<author>kfogel</author>
+<date>2008-03-28T21:54:18.642340Z</date>
+<msg>* www/svn_1.5_releasenotes.html
+  (Compatibility Concerns): Don't refer to API section, since that
+    section is not going to contain much in the way of specifics.
+  (Sparse Directories :: Compatibility with older servers): Rewrite.
+  (Relative URLs, peg revisions in svn:externals): Rewrite, reformat.
+  (API changes, improvements and language bindings): Rewrite.
+  (Bug fixes): Rewrite.
+</msg>
+</logentry>
+<logentry
+   revision="30107">
+<author>kfogel</author>
+<date>2008-03-28T20:45:16.225796Z</date>
+<msg>* www/project_tasks.html
+  (Google Summer of Code Tasks): This section didn't even credit
+    Google by name for summer of code.  Retitle and rewrite a bit.
+</msg>
+</logentry>
+<logentry
+   revision="30101">
+<author>kfogel</author>
+<date>2008-03-28T14:19:44.204542Z</date>
+<msg>* subversion/libsvn_client/diff.c
+  (set_up_diff_cmd_and_options): Really allow config to be null,
+    following up to r30053.
+
+Found by: kou
+</msg>
+</logentry>
+<logentry
+   revision="30098">
+<author>julianfoad</author>
+<date>2008-03-28T12:49:37.471229Z</date>
+<msg>Improve the help text for 'svn merge'.
+
+* subversion/svn/main.c
+  (svn_cl__cmd_table): In the entry for "merge":
+    change the position of ellipses to try to better convey the syntax;
+    correct the default revision range from "1:HEAD" to "0:HEAD";
+    re-word the note about tracking merges for accuracy and readability;
+    add a note about --ignore-ancestry suppressing the tracking.
+
+</msg>
+</logentry>
+<logentry
+   revision="30097">
+<author>julianfoad</author>
+<date>2008-03-28T12:46:54.616335Z</date>
+<msg>Test for issue #1962: merge of non-empty subdir committed incorrectly.
+
+This change is a re-application of the test from r26169 (which was reverted in
+r26181), but this time marked as "XFAIL".
+
+Patch by: dionisos
+
+* subversion/tests/cmdline/merge_tests.py
+  (merge_added_subtree): New. Test to verify equal results on 'svn cp' and
+    merge.
+  (test_list): Add merge_added_subtree() as XFail.
+</msg>
+</logentry>
+<logentry
+   revision="30095">
+<author>niqueco</author>
+<date>2008-03-28T01:17:45.246836Z</date>
+<msg>Spanish translation updated.
+
+* subversion/po/es.po:
+  Some translation updates.
+</msg>
+</logentry>
+<logentry
+   revision="30093">
+<author>lgo</author>
+<date>2008-03-27T19:12:54.454659Z</date>
+<msg>* subversion/libsvn_ra_serf/util.c: Follow up on r30092 with some typo fixes.
+
+</msg>
+</logentry>
+<logentry
+   revision="30092">
+<author>lgo</author>
+<date>2008-03-27T18:56:46.292505Z</date>
+<msg>* subversion/libsvn_ra_serf/util.c: Add and improve some function 
+  documentation, cleanup a comment.
+
+Suggested by: kfogel
+
+</msg>
+</logentry>
+<logentry
+   revision="30091">
+<author>kfogel</author>
+<date>2008-03-27T18:08:06.117180Z</date>
+<msg>Make svn_client_propset3 call notify on all updated paths (issue #3147).
+
+Patch by: Bert Huijben &lt;b.huijben_at_competence.biz&gt;
+
+* subversion/include/svn_wc.h
+  (svn_wc_notify_action_t): Add new enum svn_wc_notify_property_updated.
+    Also, add "@since New in 1.5" marker on svn_wc_notify_update_replace.
+
+* subversion/libsvn_client/prop_commands.c
+  (propset_walk_baton): Added notify_func and notify_baton.
+  (propset_walk_cb): Call notify on all updated paths.
+  (svn_client_propset3): Initialize notify_func and notify_baton from
+   the client context.
+</msg>
+</logentry>
+<logentry
+   revision="30089">
+<author>blair</author>
+<date>2008-03-27T16:52:01.010378Z</date>
+<msg>* notes/wc-ng-design:
+  Spelling fixes.
+</msg>
+</logentry>
+<logentry
+   revision="30087">
+<author>kfogel</author>
+<date>2008-03-27T16:43:55.132551Z</date>
+<msg>Follow up to r29939 with doc string changes and a trivial code change.
+
+* subversion/libsvn_ra_serf/util.c
+  (ssl_convert_serf_failures): Expand doc string.
+  (convert_organisation_to_str): Remove unnecessary intermediate
+    variable (no functional change), and document.
+</msg>
+</logentry>
+<logentry
+   revision="30086">
+<author>cmpilato</author>
+<date>2008-03-27T16:42:16.399999Z</date>
+<msg>Fix an ancient bug which caused mod_dav_svn to a) transmit some opaque
+URLs with double slashes, and b) send baseline collection urls that
+were altogether mis-rooted:
+
+   ...
+   &lt;S:add-directory name="G" bc-url="/A/D/G"&gt;
+   &lt;D:checked-in&gt;
+   &lt;D:href&gt;/svn-test-work/local_tmp/repos/!svn/ver/1//A/D/G&lt;/D:href&gt;
+   &lt;/D:checked-in&gt;
+   ...
+
+* subversion/mod_dav_svn/reports/update.c
+  (get_from_path_map): Use svn_path_join() instead of apr_pstrcat()
+    because the former understands path semantics.
+</msg>
+</logentry>
+<logentry
+   revision="30077">
+<author>stsp</author>
+<date>2008-03-27T09:41:39.242710Z</date>
+<msg>* www/hacking.html: Treated to Vim's internal spell checker.
+   Oddly enough, Vim does not know the word 'frobnicated'.
+   I hear Emacs can do anything... maybe Emacs knows it?
+</msg>
+</logentry>
+<logentry
+   revision="30076">
+<author>stylesen</author>
+<date>2008-03-27T07:47:20.960495Z</date>
+<msg>* tools/dist/post-to-tigris.py
+  (usage): Fix a typo.
+</msg>
+</logentry>
+<logentry
+   revision="30074">
+<author>arfrever</author>
+<date>2008-03-26T21:33:12.471523Z</date>
+<msg>Follow-up to r30062: Update Perl bindings.
+
+* subversion/bindings/swig/perl/native/Client.pm
+  (@_all_fns): Rename resolved2 to resolve.
+</msg>
+</logentry>
+<logentry
+   revision="30070">
+<author>cmpilato</author>
+<date>2008-03-26T20:28:19.024353Z</date>
+<msg>Remove support for automatic confict resolution from 'svn resolved',
+adding instead a new 'svn resolve' subcommand.  'svn resolved' is now
+deprecated, with 'svn resolve --accept working' the new recommended
+way to merely twiddle the conflicted state flags ala 'svn resolved'.
+
+* subversion/svn/cl.h
+  (SVN_CL__ACCEPT_WORKING): New #define.
+  (svn_cl__accept_unspecified, svn_cl__accept_working): New enum values.
+  (svn_cl__resolve): Add prototype.
+
+* subversion/svn/main.c
+  (svn_cl__cmd_table): Add new 'resolve' subcommand.  Remove support
+    for --accept from the 'resolved' subcommand.
+  (main): Change the default --accept value to
+    svn_cl__accept_unspecified, and deal explicitly with invalid --accept
+    values versus unspecified ones.
+
+* subversion/svn/resolve-cmd.c
+  New file containing implementation of svn_cl__resolve().
+
+* subversion/svn/resolved-cmd.c
+  (): Update the copyright years.
+  (svn_cl__resolved): Lose all the --accept support, and just pass
+    svn_wc_conflict_choose_merged to svn_client_resolved2().
+
+* subversion/svn/conflict-callbacks.c
+  (svn_cl__accept_from_word): Map "working" --accept keyword to the
+    correct new value.
+  (svn_cl__conflict_handler): Handle svn_cl__accept_working and
+    svn_cl__accept_unspecified.
+
+* subversion/tests/cmdline/basic_tests.py
+  (automatic_conflict_resolution): Update this test to use 'svn
+    resolve' instead of 'svn resolved', and to test the new "--accept
+    working" option to that subcommand.
+
+* getopt_tests_data/svn_help_stdout,
+* getopt_tests_data/svn--help_stdout
+  Update expected output to include new 'resolve' subcommand.
+</msg>
+</logentry>
+<logentry
+   revision="30067">
+<author>hwright</author>
+<date>2008-03-26T20:19:03.734569Z</date>
+<msg>Followup to r30062: Unbreak the JavaHL build by using svn_client_resolve()
+instead of svn_client_resolved2().  Rename Java APIs as appropriate.
+
+[ in subversion/bindings/javahl/ ]
+* native/org_tigris_subversion_javahl_SVNClient.cpp
+  (Java_org_tigris_subversion_javahl_SVNClient_resolve): Use new API name.
+
+* native/SVNClient.h,
+  native/SVNClient.cpp:
+  (resolve): Renamed from resolved().  Use svn_client_resolve().
+
+* src/org/tigris/subversion/javahl/SVNClientSynchronized.java,
+  src/org/tigris/subversion/javahl/SVNClient.java,
+  src/org/tigris/subversion/javahl/SVNClientInterface.java:
+  (resolve): Renamed from resolved().
+</msg>
+</logentry>
+<logentry
+   revision="30062">
+<author>cmpilato</author>
+<date>2008-03-26T19:35:38.249293Z</date>
+<msg>Rename svn_client_resolved2() to svn_client_resolve() to reflect the
+fact that this function can now actively perform conflict resolution,
+not just do post-facto twiddling of the conflicted working copy state 
+flags.
+
+* subversion/include/svn_client.h
+  (svn_client_resolved): Update docstring.
+  (svn_client_resolve): Was svn_client_resolved2().
+
+* subversion/libsvn_client/resolved.c
+  (svn_client_resolved): Track rename of svn_client_resolved2().
+  (svn_client_resolve): Was svn_client_resolve2().
+
+* subversion/svn/resolved-cmd.c
+  (svn_cl__resolved): Track rename of svn_client_resolved2().
+</msg>
+</logentry>
+<logentry
+   revision="30061">
+<author>cmpilato</author>
+<date>2008-03-26T18:40:06.816721Z</date>
+<msg>Revert the relatively recent change from 'apr_hash_t *' to 'svn_mergeinfo_t' 
+in one API that doesn't technically return well-formed mergeinfo.
+
+* subversion/libsvn_client/mergeinfo.h,
+* subversion/libsvn_client/mergeinfo.c
+  (svn_client_mergeinfo_get_merged): Change type of returned hash from
+    'svn_mergeinfo_t' to 'apr_hash_t *' because the format isn't
+     exactly mergeinfo-like.
+  (svn_client_suggest_merge_sources): Update calls to
+    svn_client_mergeinfo_get_merged().
+
+* subversion/svn/mergeinfo-cmd.c
+  (svn_cl__mergeinfo): Update calls to svn_client_mergeinfo_get_merged().
+</msg>
+</logentry>
+<logentry
+   revision="30059">
+<author>pburba</author>
+<date>2008-03-26T16:01:00.662178Z</date>
+<msg>Minor tweaks to overview of the svn:mergeinfo property in svn_mergeinfo.h.
+
+* subversion/include/svn_mergeinfo.h
+  (SVN_PROP_MERGEINFO overview comment): A few tweaks, notably that elision
+  doesn't occur after a switch or update anymore (hasn't for a long time in
+  fact). 
+</msg>
+</logentry>
+<logentry
+   revision="30054">
+<author>hwright</author>
+<date>2008-03-26T04:30:09.325058Z</date>
+<msg>Followup to r30050: Use an existing error instead of defining a new one.
+
+Suggested by: kfogel
+
+* subversion/include/svn_error_codes.h
+  (SVN_ERR_BAD_PATH): Remove.
+
+* subversion/svn/commit-cmd.c
+  (svn_cl__commit): Use SVN_ERR_WC_BAD_PATH instead of SVN_ERR_BAD_PATH.
+</msg>
+</logentry>
+<logentry
+   revision="30053">
+<author>kfogel</author>
+<date>2008-03-26T03:26:30.571519Z</date>
+<msg>Fix an intermittent problem with diff_tests 47 ('svn diff -x wc -r#'
+should return error).
+
+The problem was that the RA session got opened before the diff options
+were parsed.  Since sbox.wc_dir came right after the -x option (that's
+the pilot error we're testing for), the client would first contact the
+repository of `.' -- the repository of the regression suite's own
+working copy, i.e., the svn.collab.net repository.  If contacting that
+repository went fine, then later the client would hit the expected
+option-parsing error (right before trying to diff a file), and we'd
+never even know about the spurious RA traffic.  But if contacting the
+repository failed (say, because of a cert error over https://, which
+could happen because the test suite uses its own config dir different
+from the tester's), then the test would fail, because it's expecting a
+parse error not an RA error.
+
+The fix is to set up the diff command and its options earlier, before
+the repository is contacted.  Now that we parse the options earlier,
+we also parse them just once, instead of on each diff_content_changed().
+As a bonus, we no longer need to pass diff parameters around so much,
+so we don't (but note that removing all those parameters makes this
+commit look hairier than it really is).
+
+* subversion/libsvn_client/diff.c
+  (struct diff_cmd_baton): Replace options with field with two new
+    fields: diff_cmd and options.  Remove config field.
+  (struct diff_parameters): Remove options field entirely.
+  (set_up_diff_cmd_and_options): New helper function.  Remove ancient
+    and redundant assert() from inherited code (see r1195).
+  (svn_client_diff4, svn_client_diff_peg4): Don't set up options in
+    diff_params anymore.  Use above new helper to set up the diff_cmd
+    and options part of the diff_cmd_baton.
+  (svn_client_diff_summarize2, svn_client_diff_summarize_peg2): Don't
+    set up options in diff_params anymore.
+  (diff_content_changed): Get diff command options from diff_cmd_baton, 
+    for both external and internal invocation.
+  (diff_wc_wc, diff_repos_wc): Remove options parameter.
+  (do_diff): Don't pass options to diff_wc_wc or diff_repos_wc anymore.
+</msg>
+</logentry>
+<logentry
+   revision="30050">
+<author>hwright</author>
+<date>2008-03-26T02:47:33.044294Z</date>
+<msg>Avoid running into an assert when attempting to commit with a URL as the target.
+This was reported on the users' list here:
+http://svn.haxx.se/users/archive-2008-03/0883.shtml
+
+* subversion/include/svn_error_codes.h
+  (SVN_ERR_BAD_PATH): New error.
+
+* subversion/tests/cmdline/commit_tests.py
+  (commit_url): New test.
+  (test_list): Run the new test.
+
+* subversion/svn/commit-cmd.c
+  (svn_cl__commit): Check each of the targets to make sure they aren't URLs
+    prior to processing them.
+</msg>
+</logentry>
+<logentry
+   revision="30048">
+<author>dionisos</author>
+<date>2008-03-25T21:58:49.683052Z</date>
+<msg>* notes/unicode-composition-for-filenames: New file describing NFC/NFD issues.</msg>
+</logentry>
+<logentry
+   revision="30044">
+<author>arfrever</author>
+<date>2008-03-25T18:35:31.807490Z</date>
+<msg>Polish translation update.
+
+* subversion/po/pl.po: Polish translation update.
+</msg>
+</logentry>
+<logentry
+   revision="30043">
+<author>hwright</author>
+<date>2008-03-25T16:30:58.902549Z</date>
+<msg>Add a script for adding release to the distribution area of
+subversion.tigirs.org.
+
+* tools/dist/post-to-tigris.py:
+  New.
+</msg>
+</logentry>
+<logentry
+   revision="30042">
+<author>kfogel</author>
+<date>2008-03-25T15:41:53.854835Z</date>
+<msg>* www/svn_1.5_releasenotes.html
+  (Merge Tracking /User interface): Emphasize that one of the commands
+    is intended to be repeated.
+</msg>
+</logentry>
+<logentry
+   revision="30041">
+<author>arfrever</author>
+<date>2008-03-25T14:42:32.551010Z</date>
+<msg>* build/buildcheck.sh:
+* build/PrintPath:
+* build/getversion.py:
+* build/install-sh:
+* subversion/tests/cmdline/svnadmin_tests.py:
+* subversion/tests/cmdline/log_tests.py:
+* subversion/tests/cmdline/trans_tests.py:
+* subversion/tests/cmdline/svnlook_tests.py:
+* subversion/tests/cmdline/switch_tests.py:
+* subversion/tests/cmdline/externals_tests.py:
+* subversion/tests/cmdline/diff_tests.py:
+* subversion/tests/cmdline/copy_tests.py:
+* subversion/tests/cmdline/stat_tests.py:
+* subversion/tests/cmdline/svnversion_tests.py:
+* subversion/tests/cmdline/prop_tests.py:
+* subversion/tests/cmdline/basic_tests.py:
+* subversion/tests/cmdline/update_tests.py:
+* subversion/tests/cmdline/utf8_tests.py:
+* subversion/tests/cmdline/commit_tests.py:
+* subversion/tests/cmdline/schedule_tests.py:
+* subversion/tests/cmdline/merge_tests.py:
+* subversion/tests/cmdline/getopt_tests.py:
+* contrib/client-side/svn_all_diffs.pl:
+* contrib/client-side/search-svnlog.pl:
+* contrib/client-side/svn_load_dirs/svn_load_dirs.pl.in:
+* contrib/cgi/mirror_dir_through_svn.cgi:
+* tools/client-side/showchange.pl:
+* tools/dist/dist.sh:
+* tools/hook-scripts/commit-access-control.pl.in:
+* tools/hook-scripts/svnperms.py:
+* tools/hook-scripts/mailer/mailer.py:
+* tools/hook-scripts/mailer/tests/mailer-init.sh:
+* tools/hook-scripts/mailer/tests/mailer-t1.sh:
+* tools/hook-scripts/mailer/tests/mailer-tweak.py:
+* tools/hook-scripts/commit-email.pl.in:
+* tools/dev/stress.pl:
+* tools/dev/gnuify-changelog.pl:
+* tools/dev/prebuild-cleanup.sh:
+* tools/examples/dumpprops.py:
+* tools/examples/check-modified.py:
+* tools/examples/svnlook.py:
+* tools/examples/svnshell.py:
+* tools/examples/geturl.py:
+* tools/examples/putfile.py:
+* tools/examples/revplist.py:
+* tools/examples/getfile.py:
+* tools/examples/blame.py:
+* doc/tools/bin/run-fop.sh:
+* autogen.sh:
+* gen-make.py:
+  Set svn:executable property to "*".
+</msg>
+</logentry>
+<logentry
+   revision="30030">
+<author>arfrever</author>
+<date>2008-03-24T19:48:36.008827Z</date>
+<msg>Always pass --tag=CC / --tag=CXX option to libtool.
+Libtool 1.5 or later is now required to build Subversion without using release
+tarballs.
+
+* configure.ac:
+  Don't check if libtool supports --tag option. This check gives false
+   results with Libtool 2.2.
+* Makefile.in:
+  (LTFLAGS): Replace @SVN_LT_CCTAG@ with --tag=CC.
+  (LTCXXFLAGS): Replace @SVN_LT_CXXTAG@ with --tag=CXX.
+</msg>
+</logentry>
+<logentry
+   revision="30029">
+<author>glasser</author>
+<date>2008-03-24T19:46:12.112355Z</date>
+<msg>Fix typo in help text.
+
+* subversion/svn/main.c
+  (svn_cl__cmd_table): Add missing '(' to "--accept" docstring
+   for "svn resolved".
+</msg>
+</logentry>
+<logentry
+   revision="30027">
+<author>hwright</author>
+<date>2008-03-24T17:10:34.782818Z</date>
+<msg>Record some of my long pent up ideas about a generic object model for bindings
+access to Subversion.  This is in no way gospel, and I encourage others to read, 
+comment on, and modify this document.
+
+* notes/object-model.txt:
+  Lots of new content.
+</msg>
+</logentry>
+<logentry
+   revision="30024">
+<author>kfogel</author>
+<date>2008-03-24T16:04:25.022897Z</date>
+<msg>* subversion/svn/main.c
+  (svn_cl__cmd_table."propset"): Say the word "glob", so those who
+    know what globbing is will understand that it's happening here.
+</msg>
+</logentry>
+<logentry
+   revision="30023">
+<author>kfogel</author>
+<date>2008-03-24T15:46:09.864898Z</date>
+<msg>* COMMITTERS (stsp): Move to full-commit-access section, as authorized
+    by the Department of Repository Security.
+</msg>
+</logentry>
+<logentry
+   revision="30020">
+<author>pburba</author>
+<date>2008-03-24T15:15:48.179592Z</date>
+<msg>Fix issue #3133, don't contact server during WC-&gt;WC moves and copies.
+
+* subversion/libsvn_client/copy.c
+  (calculate_target_mergeinfo): Doc string tweak noting that ra_session 
+  can be NULL if we are not contacting the repos.
+  (propagate_mergeinfo_within_wc): Don't open an RA session!  This function
+  is strictly a helper for WC-&gt;WC copies and moves (the removed bit of code
+  dates back to when we *did* contact the server in these cases).  Also
+  tweak the doc string to remove mention of non-existent 
+  with_merge_history argument.</msg>
+</logentry>
+<logentry
+   revision="30017">
+<author>dionisos</author>
+<date>2008-03-24T12:27:40.335973Z</date>
+<msg>* notes/wc-ng-design: Add more issues and comments resulting from discussion.</msg>
+</logentry>
+<logentry
+   revision="30015">
+<author>stsp</author>
+<date>2008-03-23T20:13:13.511193Z</date>
+<msg>* www/hacking.html: In the "Crediting" section, be more explicit
+   about the preferred way of listing committers.
+
+Approved by: kfogel
+</msg>
+</logentry>
+<logentry
+   revision="30013">
+<author>kfogel</author>
+<date>2008-03-23T06:57:00.291091Z</date>
+<msg>Transfer some useful stuff over from my .emacs.
+
+The entry points here are `svn-faq-url' and `svn-hacking-url'.
+See also `svn-source-tree-top', which you might need to customize.
+
+* tools/dev/svn-dev.el:
+  (svn-source-tree-top, svn-faq-file, svn-hacking-file,
+   svn-url-base, svn-faq-url, svn-hacking-url, svn-html-get-targets,
+   svn-url-completing-read, svn-faq-history-list, svn-hacking-history-list,
+   svn-faq-url, svn-hacking-url): New.
+</msg>
+</logentry>
+<logentry
+   revision="30012">
+<author>arfrever</author>
+<date>2008-03-23T01:44:06.143663Z</date>
+<msg>* configure.ac:
+   Autoconf 2.58 or later is now required so always call AC_PROG_EGREP.
+</msg>
+</logentry>
+<logentry
+   revision="30009">
+<author>dionisos</author>
+<date>2008-03-22T20:54:37.791572Z</date>
+<msg>Fix issue #3135 (property update on locally deleted file breaks WC).
+
+* subversion/libsvn_wc/update_editor.c (merge_file): Only fill WC file
+   related entry cache-fields if the cache will serve any use (ie
+   when the entry is schedule-normal).</msg>
+</logentry>
+<logentry
+   revision="30008">
+<author>hwright</author>
+<date>2008-03-22T14:33:07.830376Z</date>
+<msg>* www/svn_1.5_releasenotes.html,
+  www/hacking.html
+  www/project_tasks.html:
+  Fix sundry validation errors.
+</msg>
+</logentry>
+<logentry
+   revision="30007">
+<author>hwright</author>
+<date>2008-03-22T14:27:49.400583Z</date>
+<msg>* www/project-tasks.html:
+  Fix validation errors caused by r29946:
+  project_tasks.html:228: parser error : Comment must not contain '--'
+  (double-hyphen)
+</msg>
+</logentry>
+<logentry
+   revision="30006">
+<author>hwright</author>
+<date>2008-03-22T14:08:12.206252Z</date>
+<msg>A little linkifying in the Summer of Code task list.
+
+* www/project-tasks.html
+  (summer-of-code): Link back to the main Summer of Code website, and also
+    add a note to see the SoC FAQ for generic program questions.
+</msg>
+</logentry>
+<logentry
+   revision="30004">
+<author>stsp</author>
+<date>2008-03-22T13:47:06.915360Z</date>
+<msg>Fix the client-side problem described in issue #2382 (correctly
+handle dual-stack servers in ra_svn client).
+
+With this fix, clients iterate over all available addresses when
+connecting to a host running svnserve and use the first address
+that works.
+
+We used to only try the first address, and if that didn't work
+we bailed out -- too bad if want to connect to localhost, the
+first address happens to be IPv6 loopback, and the host is
+configured to reject any IPv6 packets.
+See http://svn.haxx.se/dev/archive-2008-03/0605.shtml
+
+Patch by: joe
+(Updated for current trunk by me.)
+
+Approved by: lgo
+
+* subversion/libsvn_ra_svn/client.c:
+  (make_connection): Iterate through the returned list of addresses
+   until a socket/connect pair succeeds.
+</msg>
+</logentry>
+<logentry
+   revision="30001">
+<author>lgo</author>
+<date>2008-03-22T07:28:58.957695Z</date>
+<msg>ra_serf: Code cleanup.
+
+Suggested by: kfogel
+
+* subversion/libsvn_ra_serf/update.c
+  (finish_report): Don't create temp. variable 'err'.
+</msg>
+</logentry>
+<logentry
+   revision="29997">
+<author>arfrever</author>
+<date>2008-03-22T00:45:30.225494Z</date>
+<msg>* subversion/svn/merge-cmd.c
+  (svn_cl__merge): Consistently begin message with uppercase letter.
+</msg>
+</logentry>
+<logentry
+   revision="29996">
+<author>epg</author>
+<date>2008-03-22T00:40:41.564147Z</date>
+<msg>* CHANGES (1.5.0):
+  Note mod_dav_svn logging changes.
+</msg>
+</logentry>
+<logentry
+   revision="29995">
+<author>epg</author>
+<date>2008-03-22T00:19:49.490164Z</date>
+<msg>* CHANGES (1.5.0):
+  Move two non-command-specific items (peg dates and --accept) down
+  out of the command-specific section.
+</msg>
+</logentry>
+<logentry
+   revision="29994">
+<author>epg</author>
+<date>2008-03-22T00:12:51.516123Z</date>
+<msg>* CHANGES (1.5.0):
+  - Note partitioning for large FSFS deployments.
+  - Use the canonical form of all command names (e.g. s/mv/move/g).
+  - Regroup and remove redundancies in new --force options.
+  - Group scattered prop* commands together.
+  - Remove outdated information about propedit and propset on URLs and
+    add note that they now work on URLs.
+  - Drop issue #2860 entry; 1.4 didn't support propedit URL at all.
+  - Note log --xml --with-revprop .
+  - Nearly all entries said "now"; add "now" where missing.
+  - Reword a few entries for clarity.
+  - Remove some redundant entries
+  - Add some missing global-ignores changes, and move them all together.
+  - Move HTTP User-Agent extensibility to Developer-visible section.
+  - Clarify that issue #443 was specific to neon and serf.
+  - Drop svnadmin verify -r bugfix; that option is new in this
+    release, and noted elsewhere.
+  - Add entry for better FSFS support for some buggy NFS clients (r29448).
+  - Move gen_win.py entry to Developer-visible section.
+  - Turn Bindings section into one line, as all four bindings had too
+    many improvements to list.
+
+Patch by: epg
+          kfogel
+</msg>
+</logentry>
+<logentry
+   revision="29988">
+<author>kfogel</author>
+<date>2008-03-21T22:06:09.014621Z</date>
+<msg>* www/links.html (hosting): Move 8svn.com to end, following up to r29987.
+    In the absence of alphabetical order or any other clear policy,
+    I'm just going to reward the early adopters :-). 
+</msg>
+</logentry>
+<logentry
+   revision="29987">
+<author>kfogel</author>
+<date>2008-03-21T22:03:34.959364Z</date>
+<msg>* www/links.html (hosting): Add 8svn.com.
+
+Patch by: Keith Coleman &lt;keith@scaltro.com&gt;
+</msg>
+</logentry>
+<logentry
+   revision="29986">
+<author>lgo</author>
+<date>2008-03-21T21:58:52.715620Z</date>
+<msg>ra_serf: Add ability to load CA authority certifications and use them to 
+verify server certificates.
+This complete issue #3111.
+
+Note: as before, those people building svn with serf trunk should update the 
+latter to r1179.
+
+* subversion/libsvn_ra_serf/util.c
+  (load_authorities): New function.
+  (svn_ra_serf__conn_setup): Load and trust the CA certificate files.
+</msg>
+</logentry>
+<logentry
+   revision="29984">
+<author>stsp</author>
+<date>2008-03-21T18:39:18.809161Z</date>
+<msg>* notes/tree-conflicts/detection.txt: Remove the section explaining
+   why detecting tree conflicts during merge requires history.
+   It has been made obsolete by recent design discussions.
+   Further update descriptions of how we plan to detect use cases
+   4 and 6. Completely rewrite the section on use case 5, which
+   was still outdated wrt latest discussion.
+
+Patch by: Stephen Butler &lt;sbutler@elego.de&gt;
+</msg>
+</logentry>
+<logentry
+   revision="29983">
+<author>stsp</author>
+<date>2008-03-21T15:37:37.526956Z</date>
+<msg>* notes/tree-conflicts/detection.txt: Cover results of further design
+   discussion between Julian Foad, Stephen Butler, Nico Schellingerhout,
+   C. Michael Pilato, and myself. We have gotten much closer to a solid
+   design for detection of the "merge" use cases (UC 4, 5, and 6).
+
+Patch by: Julian Foad &lt;julianfoad@btopenworld.com&gt;
+(Based on a patch by me, and tweaked by me: removed a remark
+I introduced in the patch that Julian's patch was based on.)
+</msg>
+</logentry>
+<logentry
+   revision="29980">
+<author>clkao</author>
+<date>2008-03-21T12:55:05.130693Z</date>
+<msg>* bindings/swig/perl/native/Makefile.PL.in:
+  Include libsvn_{fs_util,ra_neon,ra_serf} libtool directories
+  for `make test', so the tests run against in-tree libraries.
+
+</msg>
+</logentry>
+<logentry
+   revision="29979">
+<author>arfrever</author>
+<date>2008-03-21T00:32:18.237567Z</date>
+<msg>* www/svn_1.5_releasenotes.html
+  (mt-ui): Delete duplicated words.
+</msg>
+</logentry>
+<logentry
+   revision="29974">
+<author>arfrever</author>
+<date>2008-03-20T20:09:05.329601Z</date>
+<msg>Follow-up to r29947: Fix coding style.
+
+* subversion/mod_authz_svn/mod_authz_svn.c
+  (convert_case, get_username_to_authorize):
+   Place function types and names on separate lines.
+</msg>
+</logentry>
+<logentry
+   revision="29973">
+<author>hwright</author>
+<date>2008-03-20T19:10:58.905015Z</date>
+<msg>* www/hacking.html
+  (patch-manager): Update to reflect Daniel Shahaf as the new patch manager.
+</msg>
+</logentry>
+<logentry
+   revision="29969">
+<author>kameshj</author>
+<date>2008-03-20T10:31:00.092009Z</date>
+<msg>When we pass END as 'svn_opt_revision_unspecified' to 
+'svn_client__repos_locations', we are not interested in END_URL and
+END_REVISION, so as per API we can pass them as NULL.
+
+* subversion/libsvn_client/merge.c
+  (filter_self_referential_mergeinfo): Pass end_revision and
+   end_url as NULL to svn_client__repos_locations.
+</msg>
+</logentry>
+<logentry
+   revision="29968">
+<author>kameshj</author>
+<date>2008-03-20T09:51:30.883061Z</date>
+<msg>Avoid unneccessary allocations in the loop.
+
+* subversion/libsvn_client/merge.c
+  (filter_self_referential_mergeinfo): Move constant allocation to outside
+   of loop.
+</msg>
+</logentry>
+<logentry
+   revision="29967">
+<author>pburba</author>
+<date>2008-03-20T01:45:18.455671Z</date>
+<msg>Update doc string of svn_rangelist_merge noting that it compacts ranges,
+and handles empty ranges, and add some C API tests of this behavior.
+
+* subversion/include/svn_mergeinfo.h
+  (svn_rangelist_merge):
+
+* subversion/tests/libsvn_subr/mergeinfo-test.c
+  (test_rangelist_merge): Test merging of empty ranges and non-empty
+  range_to_string with empty range to see that the former is compacted.
+</msg>
+</logentry>
+<logentry
+   revision="29966">
+<author>cmpilato</author>
+<date>2008-03-20T00:55:13.352163Z</date>
+<msg>Minor test string fix (doesn't effect the test logic).</msg>
+</logentry>
+<logentry
+   revision="29965">
+<author>pburba</author>
+<date>2008-03-19T19:42:59.781370Z</date>
+<msg>Fix spurious Win32 buildbot failure of diff_tests.py 47
+
+On Win32,if your current directory is not a working copy, and you do
+something like
+
+  diff -x WCPATH -r1
+
+You'll get the error "svn: '.' is not a working copy" because WCPATH is
+interpreted as the --extensions argument.  How other platforms get far 
+enough to examine the --extensions arg and return the error
+"svn: Invalid argument 'WCPATH' in diff options." is a mystery to me, 
+but diff_tests.py 47 expects the latter and does pass on other platforms 
+(per the buildbots).  Regardless, the former error is quite legitimate on 
+Win32.
+
+* subversion/tests/cmdline/diff_tests.py
+  (diff_summarize_xml): Tweak expected error regexp to also accept the error 
+  that is produced on Win32.
+</msg>
+</logentry>
+<logentry
+   revision="29963">
+<author>hwright</author>
+<date>2008-03-19T18:34:49.793601Z</date>
+<msg>* www/svn_1.5_releasenotes.html
+  (news): Update links in the table of contents, and move a couple of entries
+    around to reflect ordering in the document.
+</msg>
+</logentry>
+<logentry
+   revision="29962">
+<author>kfogel</author>
+<date>2008-03-19T18:33:59.064886Z</date>
+<msg>Currently, 'svn merge' always requires a merge source, so enforce that.
+
+* subversion/svn/main.c
+  (svn_cl__cmd_table."merge"): Say SOURCE is required, in help string.
+
+* subversion/svn/merge-cmd.c
+  (svn_cl__merge): Error if no merge source supplied.
+</msg>
+</logentry>
+<logentry
+   revision="29961">
+<author>bhuvan</author>
+<date>2008-03-19T17:48:51.622137Z</date>
+<msg>This is a follow-up for r29948. Rename the macro which checks if
+revision kind is dependent on a WC. Use the new macro wherever it is
+applicable. 
+ 
+* subversion/include/svn_client.h
+  (SVN_CLIENT_IS_WC_DEPENDENT_REVKIND): Move this macro ...
+* subversion/libsvn_client/client.h
+  (SVN_CLIENT__REVKIND_NEEDS_WC) ... to here and rename it.
+* subversion/libsvn_client/copy.c
+  (setup_copy): Use the macro.
+* subversion/libsvn_client/log.c
+  (svn_client_log4): Use the new macro.
+
+Suggested by: kfogel
+Approved by: kfogel
+</msg>
+</logentry>
+<logentry
+   revision="29958">
+<author>pburba</author>
+<date>2008-03-19T17:23:35.870084Z</date>
+<msg>Follow-up to r29085, fix bug in the filtering of self-referential mergeinfo.
+
+* subversion/libsvn_client/merge.c
+  (filter_self_referential_mergeinfo): When a svn_merge_range_t describes a
+  forward merge range, the start of the range is not inclusive.  Tweak the
+  a svn_opt_revision_t created from a svn_merge_range_t to reflect this.</msg>
+</logentry>
+<logentry
+   revision="29953">
+<author>hwright</author>
+<date>2008-03-19T16:57:35.957753Z</date>
+<msg>* tools/dist/write_announcment.py
+  (main, ann_text, ann_html): Use the given major and minor version numbers to
+    generate the correct URLs for the release notes.
+</msg>
+</logentry>
+<logentry
+   revision="29951">
+<author>kfogel</author>
+<date>2008-03-19T16:48:13.987386Z</date>
+<msg>* www/svn_1.5_releasenotes.html: Add material, edit existing material.
+</msg>
+</logentry>
+<logentry
+   revision="29950">
+<author>cmpilato</author>
+<date>2008-03-19T16:34:40.966361Z</date>
+<msg>Make 'svn mkdir' do the right thing when multiple to-be-created
+directories share parent directories also in need of creation.
+
+* subversion/libsvn_client/add.c
+  (mkdir_urls): Remove duplicate to-be-created directories from the
+    targets list.
+
+* subversion/tests/cmdline/basic_tests.py
+  (basic_mkdir_url_with_parents): Expand this test to do simultaneous
+    mkdirs with common parents in need of creation.
+
+* subversion/svn/mkdir-cmd.c
+  (svn_cl__mkdir): Add SVN_ERR_FS_NOT_DIRECTORY to the list of error
+    codes that, when caught, will cause 'svn mkdir' to suggest using 
+    the --parents option.</msg>
+</logentry>
+<logentry
+   revision="29949">
+<author>stylesen</author>
+<date>2008-03-19T13:36:52.376396Z</date>
+<msg>Tweak formatting.
+
+* subversion/libsvn_client/log.c
+  (svn_client_log4): Correct level of indentation.
+</msg>
+</logentry>
+<logentry
+   revision="29948">
+<author>bhuvan</author>
+<date>2008-03-19T12:50:54.810305Z</date>
+<msg>Display a better error message, if working copy dependent revision kind
+is passed for 'svn log url -rXXX' command. Add svn_opt_revision_working
+to list of revision kinds we should check.
+
+* subversion/include/svn_client.h
+  (SVN_CLIENT_IS_WC_DEPENDENT_REVKIND): New macro.
+* subversion/libsvn_client/log.c
+  (svn_client_log4): Use the new macro. If start/end revision kind 
+  is dependent on working copy, display an error message.
+
+Approved by: kameshj
+</msg>
+</logentry>
+<logentry
+   revision="29947">
+<author>dlr</author>
+<date>2008-03-19T04:41:21.559599Z</date>
+<msg>Significantly reduce complexity of AuthzForceUsernameCase code added
+in r29875 (and subsequent follow-ups), dumping an insignificant
+micro-optimization along the way.
+
+* subversion/mod_authz_svn/mod_authz_svn.c
+  (makeupper, makelower): Remove functions.
+  (convert_case): Rename STR_TO_CONVERT and UPPER parameters to TEXT
+   and TO_UPPERCASE, respectively. Tweak doc string
+   accordingly. Really inline use of character case conversion
+   functions.
+  (get_username_to_authorize): Add doc string. Tweak formatting.
+</msg>
+</logentry>
+<logentry
+   revision="29946">
+<author>kfogel</author>
+<date>2008-03-19T03:31:10.736297Z</date>
+<msg>* www/project_tasks.html
+  Add some potential Google Summer of Code (GSoC) projects.
+</msg>
+</logentry>
+<logentry
+   revision="29944">
+<author>xsteve</author>
+<date>2008-03-18T20:31:52.112584Z</date>
+<msg>Added some more FAQ entries
+Contributed by Sarir Khamsi &lt;sarir.khamsi@raytheon.com&gt;
+
+* trunk/contrib/client-side/emacs/psvn.el:
+  Added three new FAQ entries
+</msg>
+</logentry>
+<logentry
+   revision="29942">
+<author>lgo</author>
+<date>2008-03-17T18:08:35.347316Z</date>
+<msg>ra_serf: Follow up r29939. Fix build breakage with serf 0.1.2 (&lt;trunk). 
+This includes a small comment fix reported by arfrever.
+
+Found by: hwright
+
+* subversion/libsvn_ra_serf/util.c
+  (global): Build the ssl server certificate related code only when using a
+   serf version &gt; 0.1.2.
+</msg>
+</logentry>
+<logentry
+   revision="29940">
+<author>clkao</author>
+<date>2008-03-17T08:18:46.243835Z</date>
+<msg>r27506 accidentally removed a few SVN::Repos methods.
+
+Submitted by: Cheng-Lung Sung &lt;clsung@bestpractical.com&gt;
+
+* swig/perl/native/Repos.pm:
+  Bring back methods: get_commit_editor, get_commit_editor2,
+    fs_commit_txn.
+ 
+</msg>
+</logentry>
+<logentry
+   revision="29939">
+<author>lgo</author>
+<date>2008-03-17T01:27:54.648897Z</date>
+<msg>ra_serf: add SSL server certificate validation. This adds a callback to 
+override the default algorithm. Validation is based on subject &amp; issuer, 
+matching hostname (pattern) and certificate expiration dates. Any pre-installed
+CA certificates can be used. Loading custom CA certificates is not implemented
+yet.
+
+Note: if you're building svn with serf trunk, updating serf to r1176 is needed.
+
+* subversion/libsvn_ra_serf/ra_serf.h
+  (struct svn_ra_serf__session_t): Store config information to setup serf.
+* subversion/include/svn_error_codes.h
+  (SVN_ERR_RA_SERF_SSL_CERT_UNTRUSTED): New error code.
+* subversion/libsvn_ra_serf/serf.c
+  (load_config): Load the ssl server certificate config options.
+* subversion/libsvn_ra_serf/util.c
+  (serf_failure_map[],
+   ssl_convert_serf_failures): Map serf failure codes to subversion codes.
+  (convert_organisation_to_str): Convert subject or issuer to readable text.
+  (ssl_server_cert): Callback function, allowing override of the default
+   server certificate validation algorithm.
+  (svn_ra_serf__conn_setup): Make serf use our callback.
+</msg>
+</logentry>
+<logentry
+   revision="29938">
+<author>kfogel</author>
+<date>2008-03-16T20:26:00.240579Z</date>
+<msg>* www/hacking.html
+  (Crediting, Commit access): Link to COMMITTERS file.
+</msg>
+</logentry>
+<logentry
+   revision="29936">
+<author>arfrever</author>
+<date>2008-03-16T18:35:16.388550Z</date>
+<msg>Polish translation update.
+
+* subversion/po/pl.po: Polish translation update.
+</msg>
+</logentry>
+<logentry
+   revision="29935">
+<author>kfogel</author>
+<date>2008-03-16T14:55:34.184010Z</date>
+<msg>* CHANGES (Minor new features and improvements): Add r25650.
+
+Suggested by: zhakov
+</msg>
+</logentry>
+<logentry
+   revision="29934">
+<author>fabien</author>
+<date>2008-03-16T12:12:25.285909Z</date>
+<msg>French translation update for r29932:
+
+* subversion/po/fr.po: po-update and many fixes.
+</msg>
+</logentry>
+<logentry
+   revision="29932">
+<author>dionisos</author>
+<date>2008-03-15T23:09:52.750294Z</date>
+<msg>* notes/wc-ng-design: Commit today's work.</msg>
+</logentry>
+<logentry
+   revision="29930">
+<author>arfrever</author>
+<date>2008-03-15T22:02:27.881872Z</date>
+<msg>Follow-up to r29925: Fix support for Libtool 2.2.
+
+* autogen.sh:
+   Copy config.guess and config.sub to build.
+   Don't ignore missing .m4 files when Libtool 2 is used.
+</msg>
+</logentry>
+<logentry
+   revision="29927">
+<author>kfogel</author>
+<date>2008-03-15T04:34:50.956942Z</date>
+<msg>* subversion/svn/conflict-callbacks.c
+  (svn_cl__conflict_handler): Use "s" to "show all options", where
+    doing so both shows more options and shows help for all options.
+
+See this message and its thread for more information:
+
+   http://subversion.tigris.org/servlets/ReadMsg?list=dev&amp;msgNo=136061
+   From: Blair Zajac &lt;blair@orcaware.com&gt;
+   To: Subversion Developers &lt;dev@subversion.tigris.org&gt;
+   Subject: Show all options for conflict resolution
+   Date: Thu, 13 Mar 2008 15:59:44 -0700
+   Message-ID: &lt;47D9B1E0.7060505@orcaware.com&gt;
+</msg>
+</logentry>
+<logentry
+   revision="29926">
+<author>kfogel</author>
+<date>2008-03-15T04:34:32.691440Z</date>
+<msg>* www/svn_1.5_releasenotes.html
+  (wc-and-repos-format-change): Put the subsections in the same order
+    as they are given in the outer section's title.
+</msg>
+</logentry>
+<logentry
+   revision="29925">
+<author>arfrever</author>
+<date>2008-03-14T21:53:45.901912Z</date>
+<msg>Fix building with Libtool 2.2.
+
+* autogen.sh:
+   Add --force option to libtoolize.
+   Copy ltoptions.m4, ltsugar.m4, ltversion.m4 and lt~obsolete.m4 to build.
+* configure.ac:
+   Use LT_INIT instead of AC_PROG_LIBTOOL when LT_INIT is defined.
+* aclocal.m4:
+   Include ltoptions.m4, ltsugar.m4, ltversion.m4 and lt~obsolete.m4.
+* Makefile.in:
+  (local-extraclean): Delete ltoptions.m4, ltsugar.m4, ltversion.m4 and
+   lt~obsolete.m4.
+* build:
+   Update svn:ignore property to ignore ltoptions.m4, ltsugar.m4, ltversion.m4
+   and lt~obsolete.m4.
+</msg>
+</logentry>
+<logentry
+   revision="29924">
+<author>kfogel</author>
+<date>2008-03-14T21:37:59.844660Z</date>
+<msg>* www/svn_1.5_releasenotes.html
+  (merge-tracking): Improve wording.
+</msg>
+</logentry>
+<logentry
+   revision="29923">
+<author>kfogel</author>
+<date>2008-03-14T21:36:11.169131Z</date>
+<msg>* www/svn_1.5_releasenotes.html
+  (merge-tracking): Fill out this section.
+</msg>
+</logentry>
+<logentry
+   revision="29922">
+<author>cmpilato</author>
+<date>2008-03-14T20:55:27.626909Z</date>
+<msg>For issue #3121, implement a new SVNAllowBulkUpdates mod_dav_svn
+directive which toggles support for send-all style update REPORT
+responses (versus the original, and now ra_serf-employed, skelta-style
+ones).
+
+This feature is handy for repository administrators who wish to have
+logs of every file a client grabbed as part of a
+checkout/update/etc. for security purposes.  (Since path-based authz
+stuffs aren't time sensitive, you can't apply today's policies to a
+log line that says "User joe checked out /trunk" and know that those
+policies were the same ones in place at the time of that checkout.)
+
+It has no effect on ra_serf clients, which always use skelta-style
+reports.  And ra_neon still carries fallback code which can handle
+this style of report response, too (for compatibility with older
+servers).
+
+* subversion/mod_dav_svn/mod_dav_svn.c
+  (dir_conf_t): Add 'bulk_updates' member.
+  (create_dir_config): Init 'bulk_updates' to "on".
+  (merge_dir_config): Add inheritance for the 'bulk_updates' conf member.
+  (SVNAllowBulkUpdates_cmd): New.
+  (dav_svn__get_bulk_updates_flag): New.
+  (cmds): Add 'SVNAllowBulkUpdates' directive stuffs.
+
+* subversion/mod_dav_svn/dav_svn.h
+  (dav_svn_repos): Add 'bulk_updates' member.
+  (dav_svn__get_bulk_updates_flag): New.
+
+* subversion/mod_dav_svn/repos.c
+  (get_parentpath_resource, get_resource): Populate the per-repos
+    'bulk_updates' flag from the relevant server config stuffs.
+
+* subversion/mod_dav_svn/reports/update.c
+  (dav_svn__update_report): Only check to see if the client wants a
+    bulk update report (send-all=true) if the server is configured to
+    allow those.
+</msg>
+</logentry>
+<logentry
+   revision="29920">
+<author>cmpilato</author>
+<date>2008-03-14T20:47:04.811377Z</date>
+<msg>Implement the same workaround in ra_neon that ra_serf uses to deal
+with the fact that some mod_dav_svn servers, when using a skelta-style
+update REPORT response, don't inform the client that his lock tokens
+are stale.
+
+This fixes issue #3120.
+
+* subversion/libsvn_ra_neon/fetch.c
+  (report_baton_t): Add 'lock_tokens' hash.
+  (add_node_props): Implement a lock-token-staleness check workaround
+    similar to what libsvn_ra_serf/update.c:check_lock() does.
+  (reporter_set_path, reporter_link_path): Store lock tokens in the
+    report baton's 'lock_tokens' hash.
+  (make_reporter): Initialize the report baton's 'lock_tokens' hash.
+
+* subversion/libsvn_ra_neon/lock.c
+  (svn_ra_neon__get_lock_internal): New, forged from the guts of 
+    svn_ra_neon__get_lock().  Accepts a private session baton instead
+    of a public Subversion RA session baton.
+  (svn_ra_neon__get_lock): Now just wraps svn_ra_neon__get_lock_internal().
+
+* subversion/libsvn_ra_neon/ra_neon.h
+  (svn_ra_neon__get_lock_internal): New.</msg>
+</logentry>
+<logentry
+   revision="29918">
+<author>kfogel</author>
+<date>2008-03-14T19:55:11.181399Z</date>
+<msg>* www/merge-tracking/index.html
+  (internal): Mention what happened to SQLite.
+</msg>
+</logentry>
+<logentry
+   revision="29917">
+<author>julianfoad</author>
+<date>2008-03-14T18:06:56.916792Z</date>
+<msg>* COMMITTERS: Update my email address.
+</msg>
+</logentry>
+<logentry
+   revision="29916">
+<author>kfogel</author>
+<date>2008-03-14T17:48:55.567178Z</date>
+<msg>* www/links.html (clients): Add Aigenta Unified SCC.
+
+Patch by: Andrei Faber &lt;andrei.faber@gmail.com&gt;
+</msg>
+</logentry>
+<logentry
+   revision="29914">
+<author>cmpilato</author>
+<date>2008-03-14T17:11:31.182017Z</date>
+<msg>Fix a bug in mod_dav_svn's update REPORT response that prevented lock
+breaks/steals from being propogated to the client in skelta-response cases.
+
+This bug is old, and wasn't caught until ra_serf came along because it
+only shows up when using skelta-style update responses, which, by the
+time lock support was added to Subversion, was no longer the style of
+report used by ra_neon.  ra_serf has already grown a workaround for
+the bug, but by golly I want the code to do the right thing anyway.
+
+* subversion/mod_dav_svn/reports/update.c
+  (upd_change_xxx_prop): Handle removed lock tokens in the !send_all case.
+
+* subversion/libsvn_ra_serf/update.c
+  (check_lock): Update comment to imply that the mod_dav_svn bug has
+    been fixed.</msg>
+</logentry>
+<logentry
+   revision="29913">
+<author>kameshj</author>
+<date>2008-03-14T14:19:53.688871Z</date>
+<msg>Fix build error on MS VC6, which was introduced at r29875.
+
+* subversion/mod_authz_svn/mod_authz_svn.c
+  (): remove 'strings.h'.
+  (makeupper, makelower): replace 'inline' with 'APR_INLINE'.
+
+Patch by: masaru tsuchiyama &lt;m.tmatma@gmail.com&gt;
+</msg>
+</logentry>
+<logentry
+   revision="29912">
+<author>joe</author>
+<date>2008-03-14T09:28:30.524067Z</date>
+<msg>* CHANGES: Note PKCS#11 support in ra_neon.
+</msg>
+</logentry>
+<logentry
+   revision="29911">
+<author>kameshj</author>
+<date>2008-03-14T08:36:40.561037Z</date>
+<msg>Pure stylistic fix (Placing the function return type in its own line).
+Bump the copyright year.
+
+* subversion/mod_authz_svn/mod_authz_svn.c
+
+Found by: arfrever
+</msg>
+</logentry>
+<logentry
+   revision="29910">
+<author>kfogel</author>
+<date>2008-03-14T04:58:39.801154Z</date>
+<msg>* www/svn_1.5_releasenotes.html
+  (merge-tracking): Make sure to add the "foundational" qualifier to
+    the title here, as in the table of contents.  The description will
+    go into more detail.
+</msg>
+</logentry>
+<logentry
+   revision="29909">
+<author>kfogel</author>
+<date>2008-03-14T04:57:13.011452Z</date>
+<msg>* www/svn_1.5_releasenotes.html: Finish table of contents,
+    introduction, and repos and wc upgrade sections.  Tweak
+    various other things as well.
+</msg>
+</logentry>
+<logentry
+   revision="29908">
+<author>kfogel</author>
+<date>2008-03-14T02:50:37.270992Z</date>
+<msg>* CHANGES: Finish, by pruning, rearranging what was left, and editing.
+</msg>
+</logentry>
+<logentry
+   revision="29904">
+<author>kfogel</author>
+<date>2008-03-13T21:35:51.332052Z</date>
+<msg>* CHANGES (1.5.0): Complete, based on revisions sweep.  
+
+There are still entries here that should probably be removed, but
+there shouldn't be any missing entries at this point.
+</msg>
+</logentry>
+<logentry
+   revision="29900">
+<author>lgo</author>
+<date>2008-03-13T21:12:20.974013Z</date>
+<msg>ra_serf: clean the cached realm string on the session after authentication 
+succeeded, so that we know when the server asks credentials the second time. 
+
+Found by: Bert Huijben &lt;b.huijben@competence.biz&gt;
+
+* subversion/libsvn_ra_serf/util.c
+  (handle_response): reset realm string on session.
+
+</msg>
+</logentry>
+<logentry
+   revision="29898">
+<author>rooneg</author>
+<date>2008-03-13T19:36:22.763673Z</date>
+<msg>Use an iteration pool when looking up entry kinds in base_dir_entries.
+
+* subversion/libsvn_fs_base/tree.c
+  (base_dir_entries): Use an iteration pool instead of putting everything
+   in our main pool, since nothing we allocate in that loop needs to live any
+   longer than the loop body.  Also fix a typo while I'm here.
+</msg>
+</logentry>
+<logentry
+   revision="29897">
+<author>glasser</author>
+<date>2008-03-13T17:26:54.250777Z</date>
+<msg>Adjust a comment.
+
+* subversion/libsvn_wc/update_editor.c
+  (add_file_with_history): Don't say "we need to copy working props"
+   in a block that doesn't do that (since that work was done above).
+
+Suggested by: bhuvan
+</msg>
+</logentry>
+<logentry
+   revision="29896">
+<author>kameshj</author>
+<date>2008-03-13T14:33:02.638964Z</date>
+<msg>Pure stylistic fix.
+
+* subversion/mod_authz_svn/mod_authz_svn.c
+
+Found by: dlr
+</msg>
+</logentry>
+<logentry
+   revision="29895">
+<author>lgo</author>
+<date>2008-03-13T08:48:28.342222Z</date>
+<msg>ra_serf: handle error contained in report XML during update to avoid an abort.
+
+* subversion/libsvn_ra_serf/update.c
+  (finish_report): handle parser error.
+
+* subversion/tests/cmdline/diff_tests.py
+  (diff_wrong_extension_type): new test to simulate error condition.
+  (test_list): run the new test, should pass.
+</msg>
+</logentry>
+<logentry
+   revision="29894">
+<author>lgo</author>
+<date>2008-03-13T08:45:32.074317Z</date>
+<msg>*CHANGES: add line about r26364.</msg>
+</logentry>
+<logentry
+   revision="29893">
+<author>cauchy</author>
+<date>2008-03-13T06:59:44.823579Z</date>
+<msg>Simplified chinese translation update.
+
+* subversion/po/zh_CN.po: Update to r29884.
+</msg>
+</logentry>
+<logentry
+   revision="29884">
+<author>kfogel</author>
+<date>2008-03-12T19:27:14.616499Z</date>
+<msg>* CHANGES (1.5.0): Add a couple of items caught during the revisions
+    sweep, which is still going on, and make some consistency tweaks.
+</msg>
+</logentry>
+<logentry
+   revision="29883">
+<author>hwright</author>
+<date>2008-03-12T19:15:40.216143Z</date>
+<msg>* subversion/svn/main.c
+  (svn_cl__cmd_table): Follow up to r29763 by updating the 'svn merge' help
+    text.
+</msg>
+</logentry>
+<logentry
+   revision="29882">
+<author>hwright</author>
+<date>2008-03-12T19:13:15.675566Z</date>
+<msg>* notes/wc-ng-design:
+  Fix a few typos.
+</msg>
+</logentry>
+<logentry
+   revision="29878">
+<author>cmpilato</author>
+<date>2008-03-12T19:06:10.315722Z</date>
+<msg>Make 'svn diff's verb for reverse-merging a change match that of 'svn merge'.
+
+* subversion/libsvn_client/diff.c
+  (display_mergeinfo_diff): Use "Reverse-merged" instead of "Reverted",
+    which means something entirely different in Subversion.
+ 
+</msg>
+</logentry>
+<logentry
+   revision="29876">
+<author>cmpilato</author>
+<date>2008-03-12T17:10:59.787919Z</date>
+<msg>Fix issue #3118: 2-url merge from DAV-accessed foreign repository
+leaves bogus wc-props in merge target.
+
+* subversion/libsvn_client/merge.c
+  (merge_file_added): Filter wc-props from files merge-added from
+    foreign repositories.
+</msg>
+</logentry>
+<logentry
+   revision="29875">
+<author>kameshj</author>
+<date>2008-03-12T16:14:26.129709Z</date>
+<msg>Make mod_authz_svn to apply the authz checks against upper/lower-cased
+usernames.
+
+* subversion/mod_authz_svn/mod_authz_svn.c
+  (): Include 'apr_lib.h' and 'strings.h'.
+  (struct authz_svn_config_rec): New member 'force_username_case'.
+  (authz_svn_cmds): Populate 'authz_svn_config_rec.force_username_case'
+   from configuration directive 'AuthzForceUsernameCase'.
+  (makeupper, makelower, convert_case, get_username_to_authorize):
+   New functions.
+  (req_check_access, subreq_bypass): Apply authz check against
+   upper/lower-cased usernames.
+
+Reviewed by: dlr
+</msg>
+</logentry>
+<logentry
+   revision="29874">
+<author>joe</author>
+<date>2008-03-12T15:31:10.687194Z</date>
+<msg>Allow use of Negotiate/NTLM for proxy authentiation in ra_neon,
+without needing to explicitly configure a redundant username and
+password.
+
+* subversion/libsvn_ra_neon/session.c
+  (svn_ra_neon__open): Enable (only) Negotiate auth to the proxy if no
+  proxy-username is configured.
+</msg>
+</logentry>
+<logentry
+   revision="29871">
+<author>kfogel</author>
+<date>2008-03-12T06:13:41.263975Z</date>
+<msg>* www/project_tasks.html
+  (sparse-dirs-deselect): Oops, give this section a real title,
+    following up to r29870.
+</msg>
+</logentry>
+<logentry
+   revision="29870">
+<author>kfogel</author>
+<date>2008-03-12T06:12:36.179302Z</date>
+<msg>* www/project_tasks.html: Clean out some old stuff, reorganize, and
+  add one new task for Google Summer of Code (there will be more, but
+  this one was an obvious candidate).
+</msg>
+</logentry>
+<logentry
+   revision="29869">
+<author>kfogel</author>
+<date>2008-03-12T01:12:07.239220Z</date>
+<msg>* CHANGES (1.3.1): Add an item caught during the 1.5.x CHANGES roundup.
+</msg>
+</logentry>
+<logentry
+   revision="29868">
+<author>kfogel</author>
+<date>2008-03-12T01:11:37.687025Z</date>
+<msg>* CHANGES (1.5.0): Insert preliminary list of changes.
+
+Patch by: Augie Fackler &lt;durin42@gmail.com&gt;
+          Greg Lutz &lt;greg@nearspace.com&gt;
+          Gavin 'Beau' Baumanis &lt;gavin@thespidernet.com&gt;
+          Hilco Wijbenga &lt;hilco.wijbenga@gmail.com&gt;
+          Tuomas Koski &lt;koski.tuomas@gmail.com&gt;
+          Daniel Torreblanca &lt;regulatethis@gmail.com&gt;
+          Stephen Butler &lt;sbutler@elego.de&gt;
+          Wouter van der Horst &lt;w.vanderhorst@gmail.com&gt;
+          offby1
+          bhuvan
+          lgo
+          stylesen
+          khmarbaise
+          kfogel
+
+See the 'manyhands' mailing list for details.
+</msg>
+</logentry>
+<logentry
+   revision="29859">
+<author>cmpilato</author>
+<date>2008-03-11T20:30:49.526223Z</date>
+<msg>Minor merge sanity-check logic re-org.
+
+* subversion/libsvn_client/merge.c
+  (do_merge): Group some related sanity checks, and reorder them so
+    that error conditions are checked before no-op requests (to
+    discourage naughty callers).
+</msg>
+</logentry>
+<logentry
+   revision="29858">
+<author>cmpilato</author>
+<date>2008-03-11T20:27:12.876201Z</date>
+<msg>Fix some buglets related to merges from foreign repositories.
+
+* subversion/libsvn_client/merge.c
+  (do_merge): Disallow --record-only when the sources come from a
+    different repository than the target.
+  (merge_cousins_and_supplement_mergeinfo): If the sources come from a
+    different repository than the target, skip the mergeinfo recording
+    phase (erroring if this was a --record-only request).
+</msg>
+</logentry>
+<logentry
+   revision="29857">
+<author>cmpilato</author>
+<date>2008-03-11T19:51:52.761349Z</date>
+<msg>* subversion/tests/cmdline/merge_tests.py
+  (foreign_repos_2_url): Tweak the test description.
+</msg>
+</logentry>
+<logentry
+   revision="29855">
+<author>pburba</author>
+<date>2008-03-11T19:40:59.963294Z</date>
+<msg>Fix a bug in serf's implementation of svn_ra_get_mergeinfo() where empty 
+mergeinfo is ignored.
+
+Note: This fixes the 'x86-macosx-gnu shared daily ra_serf' buildbot's 
+long-standing XPASS failure of merge_tests.py 80 merge --reintegrate on a 
+never-updated branch.
+
+* subversion/libsvn_ra_serf/mergeinfo.c
+  (end_element): Mergeinfo value of "" is valid (i.e. it's empty
+  mergeinfo), so don't ignore it.</msg>
+</logentry>
+<logentry
+   revision="29854">
+<author>rocketraman</author>
+<date>2008-03-11T18:50:10.347563Z</date>
+<msg>svnmerge.py: Similar to r29741, fix brokenness with r29666 when there is no 
+default locale for sys.stdout.encoding in Python.
+
+* contrib/client-side/svnmerge/svnmerge.py
+  (recode_stdout_to_file): Treat as a no-op when sys.stdout.encoding returns
+  None.
+</msg>
+</logentry>
+<logentry
+   revision="29852">
+<author>cmpilato</author>
+<date>2008-03-11T18:19:06.978800Z</date>
+<msg>Add a test for 2-URL merges from foreign repositories.
+
+(I'm trying to reproduce a scenario I saw earlier today where such a
+merge left wc-props that contained DAV opaque URLs which pointed to
+the wrong repository.  So far, I've not been successful.)
+
+* subversion/tests/cmdline/merge_tests.py
+  (foreign_repos_2_url): New test.
+  (test_list): Add references to new test.
+</msg>
+</logentry>
+<logentry
+   revision="29844">
+<author>hwright</author>
+<date>2008-03-10T20:36:52.862185Z</date>
+<msg>* tools/dist/construct-rolling-environment.sh
+  Update dependencies:
+    SWIG 1.3.31 - because we aren't sure that 1.3.33 works with each set of 
+      bindings.
+    libtool 1.5.26 - new bugfix release
+    neon 0.28.1 - new bugfix release
+</msg>
+</logentry>
+<logentry
+   revision="29835">
+<author>cmpilato</author>
+<date>2008-03-10T19:06:49.668821Z</date>
+<msg>* contrib/client-side/svnmerge/svnmerge-migrate-history.py
+  (Migrator.add_to_mergeinfo): Stop worrying about supporting paths
+    with colons in them (and in doing so, lose some bogus-anyway code).
+</msg>
+</logentry>
+<logentry
+   revision="29833">
+<author>cmpilato</author>
+<date>2008-03-10T18:29:49.619421Z</date>
+<msg>Code formatting changes only.</msg>
+</logentry>
+<logentry
+   revision="29828">
+<author>dlr</author>
+<date>2008-03-10T18:07:08.257683Z</date>
+<msg>* contrib/client-side/diff-wrap.sh: Add Subversion's standard license.
+</msg>
+</logentry>
+<logentry
+   revision="29824">
+<author>joe</author>
+<date>2008-03-10T15:49:59.140281Z</date>
+<msg>* configure.ac: Support and recommend neon 0.28.1.
+</msg>
+</logentry>
+<logentry
+   revision="29822">
+<author>cmpilato</author>
+<date>2008-03-10T15:38:51.987401Z</date>
+<msg>Switch from compile-time to runtime determination of whether to do
+merge tracking filtering/migration in svnsync.
+
+* subversion/svnsync/main.c
+  (edit_baton_t): Add the following boolean fields: strip_mergeinfo,
+    migrate_svnmerge, mergeinfo_stripped, svnmerge_migrated, svnmerge_blocked.
+  (change_file_prop, change_dir_prop): Consult the edit baton to see whether
+    to do Subversion mergeinfo stripping to svnmerge.py info migration, and 
+    remember the actions taken by tweaking the appropriate reporting boolean.
+  (close_edit): Print notifications (when not in quiet mode) related to 
+    merge tracking information management.
+  (get_sync_editor): Populate the new 'strip_mergeinfo' and 'migrate_svnmerge' 
+    fields conditioned on the presence of SVNSYNC_UNSUPPORTED_STRIP_MERGEINFO 
+    and SVNSYNC_UNSUPPORTED_MIGRATE_SVNMERGE environment values.
+</msg>
+</logentry>
+<logentry
+   revision="29821">
+<author>joe</author>
+<date>2008-03-10T15:22:15.577108Z</date>
+<msg>Avoid a symbol leak.
+
+* subversion/libsvn_fs_base/revs-txns.c
+  (txn_vtable): Mark as static.
+</msg>
+</logentry>
+<logentry
+   revision="29820">
+<author>lgo</author>
+<date>2008-03-10T14:30:55.860902Z</date>
+<msg>ra_serf: First part of support for authenticating to NTLM proxy servers
+(like MS ISA Server). This code is Windows specific.
+
+* subversion/libsvn_ra_serf/auth.c:
+  (serf_auth_protocols): Add 'NTLM for proxy servers' scheme.
+* subversion/libsvn_ra_serf/win32_auth_sspi.h:
+* subversion/libsvn_ra_serf/win32_auth_sspi.c:
+  (init_proxy_sspi_connection, handle_proxy_sspi_auth,
+   setup_request_proxy_sspi_auth): New functions that implement the NTLM
+    authentication handshake for proxy servers.
+* subversion/libsvn_ra_serf/ra_serf.h
+  (svn_ra_serf__connection_t): Add member field proxy_sspi_context to store
+   state information about the NTLM handshake.
+* subversion/libsvn_ra_serf/update.c
+  (finish_report): Initialize a new connection with information about the 
+   proxy authentication scheme used for previous connections to the same 
+   server.
+</msg>
+</logentry>
+<logentry
+   revision="29819">
+<author>stylesen</author>
+<date>2008-03-10T08:44:22.668302Z</date>
+<msg>Mark couple of lock_tests as XFail in dav.
+
+* subversion/tests/cmdline/lock_tests.py
+  (test_list): Mark unlock_wrong_token and unlocked_lock_of_other_user as XFail
+   tests in ra_dav only.
+</msg>
+</logentry>
+<logentry
+   revision="29818">
+<author>cacknin</author>
+<date>2008-03-10T01:15:05.385718Z</date>
+<msg>* notes/wc-ng-design: Organize the classification of svn_wc_entry_t
+  fields into a table and fix some mistakes.
+</msg>
+</logentry>
+<logentry
+   revision="29817">
+<author>dionisos</author>
+<date>2008-03-09T22:57:11.966060Z</date>
+<msg>* notes/wc-ng-design: Reflow to 79 columns.</msg>
+</logentry>
+<logentry
+   revision="29816">
+<author>dionisos</author>
+<date>2008-03-09T21:44:24.869579Z</date>
+<msg>* notes/wc-ng-design: Add the magic words 'dispatch table'.</msg>
+</logentry>
+<logentry
+   revision="29815">
+<author>rocketraman</author>
+<date>2008-03-09T21:06:52.389816Z</date>
+<msg>Fix regression error in r29666 for non-english locales that was causing a 
+KeyError when svnmerge.py commands were executed, since the output of svn 
+info was non-english and therefore non-parseable.
+
+* contrib/client-side/svnmerge.py: Set the environment in which the script
+    operates to set LC_MESSAGES = C (to force svn messages, such as those
+    for svn info to be in english, and thus parseable by svnmerge.py), while
+    also removing any pre-existing setting for LC_ALL (since setting LC_ALL 
+    to C causes log output to not be internationalized).
+
+Patch by:  me
+           Laurent Petit &lt;laurent.petit@gmail.com&gt;
+Review by: Giovanni Bajo &lt;rasky@develer.com&gt;
+Found by:  Hernán Martínez Foffani &lt;hernan.martinez@ecc.es&gt;
+</msg>
+</logentry>
+<logentry
+   revision="29814">
+<author>dionisos</author>
+<date>2008-03-09T20:27:13.913441Z</date>
+<msg> * notes/wc-ng-design: Add additional requirements and annotate with issue #s.</msg>
+</logentry>
+<logentry
+   revision="29813">
+<author>dionisos</author>
+<date>2008-03-09T17:53:52.112446Z</date>
+<msg>* notes/wc-ng-design: Incorporate the result from discussions with cacknin
+   today, including his classification of svn_wc_entry_t fields (tweaked
+   by me).</msg>
+</logentry>
+<logentry
+   revision="29812">
+<author>dionisos</author>
+<date>2008-03-09T13:57:18.533847Z</date>
+<msg> * notes/wc-ng-design: Flesh out 2 more sections.</msg>
+</logentry>
+<logentry
+   revision="29811">
+<author>dionisos</author>
+<date>2008-03-09T13:36:05.294786Z</date>
+<msg> * notes/wc-ng-design: Add example and some issue numbers.</msg>
+</logentry>
+<logentry
+   revision="29809">
+<author>arfrever</author>
+<date>2008-03-09T12:29:42.113730Z</date>
+<msg>Polish translation update.
+
+* subversion/po/pl.po: Polish translation update.
+</msg>
+</logentry>
+<logentry
+   revision="29807">
+<author>cauchy</author>
+<date>2008-03-09T08:04:26.992490Z</date>
+<msg>oops, some fix for r29806</msg>
+</logentry>
+<logentry
+   revision="29806">
+<author>cauchy</author>
+<date>2008-03-09T07:49:48.574435Z</date>
+<msg>Simplified chinese translation update.
+
+* subversion/po/zh_CN.po: Update to r29805.
+</msg>
+</logentry>
+<logentry
+   revision="29805">
+<author>arfrever</author>
+<date>2008-03-08T22:27:38.097769Z</date>
+<msg>Follow-up to r26993.
+
+* aclocal.m4:  s/configure.in/configure.ac/ in comments.
+</msg>
+</logentry>
+<logentry
+   revision="29804">
+<author>dionisos</author>
+<date>2008-03-08T22:23:47.833388Z</date>
+<msg> * notes/wc-ng-design: Explain some more about the different trees.</msg>
+</logentry>
+<logentry
+   revision="29803">
+<author>dionisos</author>
+<date>2008-03-08T22:12:40.611456Z</date>
+<msg> * notes/wc-ng-design: Update with comments received from glasser,
+  lgo and cacknin. Also: try to avoid 'etc' in order to be limitative.
+  Add some more thoughts of my own too.
+</msg>
+</logentry>
+<logentry
+   revision="29802">
+<author>dionisos</author>
+<date>2008-03-08T22:09:58.144318Z</date>
+<msg> * notes/wc-improvements: Remove section which seems to have been implemented.</msg>
+</logentry>
+<logentry
+   revision="29801">
+<author>arfrever</author>
+<date>2008-03-08T21:34:18.584210Z</date>
+<msg>* build/install-sh: Update with version from Automake 1.10.1.
+</msg>
+</logentry>
+<logentry
+   revision="29800">
+<author>arfrever</author>
+<date>2008-03-08T20:51:54.859364Z</date>
+<msg>* configure.ac
+  (NEON_ALLOWED_LIST): Allow Neon trunk (0.29).
+</msg>
+</logentry>
+<logentry
+   revision="29799">
+<author>dionisos</author>
+<date>2008-03-08T20:18:06.139626Z</date>
+<msg>* notes/propfind-pool-notes: Remove file relating to (resolved) issue #773.</msg>
+</logentry>
+<logentry
+   revision="29798">
+<author>dionisos</author>
+<date>2008-03-08T20:13:05.026966Z</date>
+<msg>* notes/reintegrate-todo.txt: Set 'native' eol-style so I can read it on Win.</msg>
+</logentry>
+<logentry
+   revision="29797">
+<author>djh</author>
+<date>2008-03-08T19:36:22.296509Z</date>
+<msg>Fix sample VC6 build script.
+
+* build/win32/vc6-build.bat.in:
+  Correct zlibstaterr label name to match the goto,
+  and use setlocal / endlocal to limit the environment changes to the
+  duration of the script.
+
+Patch by: Dave Lawrence &lt;dlawrence@ad-holdings.co.uk&gt;
+</msg>
+</logentry>
+<logentry
+   revision="29796">
+<author>djh</author>
+<date>2008-03-08T19:25:14.202816Z</date>
+<msg>* www/faq.html (mod_dav_svn-win32): Add intl3_svn.dll to list.</msg>
+</logentry>
+<logentry
+   revision="29795">
+<author>dionisos</author>
+<date>2008-03-08T09:09:32.097940Z</date>
+<msg>s/wc-2.0/wc-ng/ and set eol style.</msg>
+</logentry>
+<logentry
+   revision="29794">
+<author>kfogel</author>
+<date>2008-03-08T02:54:40.642192Z</date>
+<msg>* www/svn_1.5_releasenotes.html: Add a stub to expand later.
+
+</msg>
+</logentry>
+<logentry
+   revision="29793">
+<author>kfogel</author>
+<date>2008-03-08T01:35:09.095068Z</date>
+<msg>* www/svn_1.5_releasenotes.html: Formatting tweaks, following up to r29792. 
+</msg>
+</logentry>
+<logentry
+   revision="29792">
+<author>kfogel</author>
+<date>2008-03-08T01:31:58.092284Z</date>
+<msg>Add some more information on the FSFS improvements.
+
+* www/svn_1.5_releasenotes.html
+  (fsfs-sharding): Edit.
+  (fsfs-isolate-immutable): New section.
+
+Patch by: Dan Christian &lt;dchristian@google.com&gt;
+(Tweaked by me.)
+</msg>
+</logentry>
+<logentry
+   revision="29789">
+<author>dionisos</author>
+<date>2008-03-07T22:58:08.002392Z</date>
+<msg>Add document with my thoughts on libsvn_wc 2.0,
+giving others the opportunity to add their thoughts.</msg>
+</logentry>
+<logentry
+   revision="29787">
+<author>pburba</author>
+<date>2008-03-07T22:49:54.662297Z</date>
+<msg>Fix a pool lifetime bug when hashing working mergeinfo that might
+temporarily change during a merge only to be restored if the merge is a 
+no-op. 
+
+* subversion/libsvn_client/merge.c
+  (determine_merges_performed, get_mergeinfo_walk_cb, get_mergeinfo_paths,
+  do_file_merge): When storing items in the working mergeinfo hash be sure
+  the key is allocated in a pool with a sufficiently long lifetime (as
+  the value already is).</msg>
+</logentry>
+<logentry
+   revision="29786">
+<author>hwright</author>
+<date>2008-03-07T20:58:25.387347Z</date>
+<msg>* subversion/libsvn_repos/log.c
+  (combined_mergeinfo_path_lists): Don't assume that we have a remaining
+    revision range list before adding it.
+</msg>
+</logentry>
+<logentry
+   revision="29784">
+<author>cmpilato</author>
+<date>2008-03-07T20:45:57.826708Z</date>
+<msg>* contrib/client-side/svnmerge/svnmerge-migrate-history.py
+  (Migrator.add_to_mergeinfo): Uh.  Remove debugging print statements.</msg>
+</logentry>
+<logentry
+   revision="29770">
+<author>cmpilato</author>
+<date>2008-03-07T18:18:08.896054Z</date>
+<msg>Teach svnmerge-migrate-history.py to handle the differences between
+the svnmerge tracking info format and the format used by Subversion
+for its own merge tracking info.
+
+* contrib/client-side/svnmerge/svnmerge-migrate-history.py
+  (Migrator.add_to_mergeinfo): Convert svnmerge property values into
+    Subversion mergeinfo format before slamming them through APIs that
+    expect the latter.</msg>
+</logentry>
+<logentry
+   revision="29769">
+<author>cmpilato</author>
+<date>2008-03-07T18:16:20.291831Z</date>
+<msg>Followup to r29739, unbreaking that which was broken.
+
+* contrib/client-side/svnmerge/svnmerge-migrate-history.py
+  (Migrator.convert_path_history): Use the right variable when setting 
+    the svn:mergeinfo property.  Doh!</msg>
+</logentry>
+<logentry
+   revision="29767">
+<author>cmpilato</author>
+<date>2008-03-07T15:37:42.380577Z</date>
+<msg>Protect svnmerge.py from itself.  While Subversion might be able to
+gracefully deal with loose URL specifications (such as those that
+contain spaces), svnmerge.py cannot -- it uses whitespace as a record
+delimiter.
+
+* contrib/client-side/svnmerge/svnmerge.py
+  (is_url): Disallow URLs that contain whitespace.
+</msg>
+</logentry>
+<logentry
+   revision="29763">
+<author>hwright</author>
+<date>2008-03-07T05:16:10.973518Z</date>
+<msg>Parse comma-delimited -c arguments as multiple ranges.  This allows commands
+like:
+  svn merge -c13,15,17 ...
+instead of:
+  svn merge -c13 -c15 -c17 ...
+
+The first form is more intuitive, and better matches the svnmerge.py syntax.
+This change also make fixing log test 22 a bit easier.
+
+* subversion/svn/main.c:
+  (main): Parse comma-delimited -c arguments.
+</msg>
+</logentry>
+<logentry
+   revision="29753">
+<author>julianfoad</author>
+<date>2008-03-06T22:27:59.186861Z</date>
+<msg>Allow testing of application exit codes.
+
+This makes all of the lower-level process-running functions in
+cmdline/svntest/main.py and cmdline/svntest/actions.py return
+the exit code, all of the "run_and_verify_*()" functions guess the
+expected exit code based on whether or not output on stderr is
+expected, and new "run_and_verify_*2()" functions allow the
+expected exit code to be provided explicitly.
+
+On platforms without the Popen3 Python class (e.g. Windows), exit
+codes are returned as None, and therefore disregarded during
+validation.
+
+Patch by: Jeremy Hinds &lt;jeremy.hinds@gmail.com&gt;
+
+
+* subversion/tests/cmdline/svntest/main.py
+  (run_command, run_svn, run_svnadmin, run_svnlook, run_svnsync,
+   run_svnversion, run_command_stdin):
+    Include exit_code in the returned tuple.
+  (create_repos): Accept exit_code returned from run_command.
+  (run_one): Clarify a comment concerning exit codes
+
+* subversion/tests/cmdline/svntest/actions.py
+  (run_and_verify_svnlook2, run_and_verify_svnadmin2,
+   run_and_verify_svnversion2, run_and_verify_svn2,
+   run_and_verify_svn_match_any2): New, execute the indicated binary
+    and check actual outputs and exit code against the expected value
+    parameters.
+  (run_and_verify_svnlook, run_and_verify_svnadmin,
+   run_and_verify_svnversion, run_and_verify_svn,
+   run_and_verify_svn_match_any): Guess whether the expected exit should
+    be 0 or 1 based on whether output is expected on stderr.  Then invoke
+    the coresponding run_and_verify_*2 function with that value.  Return
+    exit_code, stdout_lines, stderr_lines.
+  (setup_pristine_repository, run_and_verify_load, run_and_verify_dump,
+   run_and_verify_checkout, run_and_verify_update, run_and_verify_commit,
+   run_and_verify_status, run_and_verify_unquiet_status,
+   run_and_verify_diff_summarize, run_and_verify_diff_summarize_xml,
+   run_and_verify_log_xml, run_and_verify_merge2,
+   run_and_verify_mergeinfo, run_and_verify_switch, run_and_validate_lock,
+   check_prop, inject_conflict_into_wc, run_and_verify_export):
+    Accept exit_code value returned from main.run_svn, main.run_command,
+    main.run_svnadmin, main.run_command_stdin, actions.run_and_verify_svn
+
+* subversion/tests/cmdline/svntest/tree.py
+  (get_props): Accept exit code returned by main.run_svn.
+
+* subversion/tests/cmdline/svntest/verify.py
+  (SVNUnexpectedExitCode): New exception raised when the exit code was not
+    what was expected.
+  (verify_exit_code): New, compares expected and actual exit code and raises
+    an exception if they are different.  Comparison is not performed if
+    expected exit code is None.
+
+* subversion/tests/cmdline/cat_tests.py,
+  subversion/tests/cmdline/lock_tests.py,
+  subversion/tests/cmdline/stat_tests.py:
+    Accept exit code returned from run_*(), replacing those calls with the
+    run_*2() counterparts for cases where stderr output is produced while
+    exiting 0.
+
+* subversion/tests/cmdline/prop_tests.py:
+    Accept exit code returned from the run_*() function calls, and verify
+    exit codes along with each verify_output().
+ 
+* subversion/tests/cmdline/authz_tests.py,
+  subversion/tests/cmdline/autoprop_tests.py,
+  subversion/tests/cmdline/basic_tests.py,
+  subversion/tests/cmdline/blame_tests.py,
+  subversion/tests/cmdline/changelist_tests.py,
+  subversion/tests/cmdline/checkout_tests.py,
+  subversion/tests/cmdline/commit_tests.py,
+  subversion/tests/cmdline/copy_tests.py,
+  subversion/tests/cmdline/depth_tests.py,
+  subversion/tests/cmdline/diff_tests.py,
+  subversion/tests/cmdline/getopt_tests.py,
+  subversion/tests/cmdline/import_tests.py,
+  subversion/tests/cmdline/log_tests.py,
+  subversion/tests/cmdline/merge_tests.py,
+  subversion/tests/cmdline/revert_tests.py,
+  subversion/tests/cmdline/schedule_tests.py,
+  subversion/tests/cmdline/special_tests.py,
+  subversion/tests/cmdline/svnadmin_tests.py,
+  subversion/tests/cmdline/svndumpfilter_tests.py,
+  subversion/tests/cmdline/svnlook_tests.py,
+  subversion/tests/cmdline/svnsync_tests.py,
+  subversion/tests/cmdline/svnversion_tests.py,
+  subversion/tests/cmdline/switch_tests.py,
+  subversion/tests/cmdline/update_tests.py:
+    Accept exit code returned from the run_*() function calls.
+</msg>
+</logentry>
+<logentry
+   revision="29751">
+<author>hwright</author>
+<date>2008-03-06T21:58:34.336217Z</date>
+<msg>Fix a --stop-on-copy 'log -g' output bug.
+
+* subversion/libsvn_repos/log.c
+  (do_merged_logs):  If we are running with strict node history, find the
+    oldest revision in the current history, and use that as hist_start.
+    For the initial (non-recursive) run, never use strict history when finding
+    history revisions (to avoid duplicates, see r29269).  Use hist_start to
+    make sure that these extra revisions aren't returned to the user.
+
+Found by: markphip
+</msg>
+</logentry>
+<logentry
+   revision="29746">
+<author>pburba</author>
+<date>2008-03-06T19:27:36.605006Z</date>
+<msg>Follow-up to r29742, minor fix, actually use the new copyfrom_rev variable.
+
+* subversion/libsvn_client/merge.c
+  (merge_file_added, merge_dir_added): Pass along the copyfrom_rev
+  variable added in r29472 to svn_wc_add_repos_file2(), svn_wc_add(), and 
+  svn_wc_add2().  There is no real functional change here, because the only
+  time the copyfrom_rev variable will be different from what was previously
+  passed is when the merge source is from a different repository.  In this
+  case copyfrom_rev is always SVN_INVALID_REVNUM, which signals the three
+  aforementioned functions to ignore copyfrom_rev entirely!  This is a long-
+  winded way of saying this change is strictly in the interest of making the
+  code a bit clearer.</msg>
+</logentry>
+<logentry
+   revision="29744">
+<author>cmpilato</author>
+<date>2008-03-06T15:50:49.758234Z</date>
+<msg>Add a simple test for merges from foreign repositories.
+
+* subversion/tests/cmdline/merge_tests.py
+  (foreign_repos): New test of merges from foreign repositories.
+  (test_list): Add reference to new test.
+</msg>
+</logentry>
+<logentry
+   revision="29743">
+<author>cmpilato</author>
+<date>2008-03-06T15:01:23.971384Z</date>
+<msg>Revert a portion of r29742 accidentally committed.</msg>
+</logentry>
+<logentry
+   revision="29742">
+<author>cmpilato</author>
+<date>2008-03-06T14:58:07.286125Z</date>
+<msg>Enhance (complete?) our existing support for merges from foreign
+repositories by treating merged adds of files and directories as
+regular adds (instead of adds with history).
+
+* subversion/libsvn_client/merge.c
+  (merge_file_added, merge_dir_added): Don't calculate copyfrom
+    information for merged adds when the merge source repository is
+    not the same repository as the one from which the merge target
+    working copy was checked out.
+
+ALSO (accidentally committed):
+
+* contrib/client-side/svnmerge/svnmerge-migrate-history.py
+  Begin trying to deal with the differences between svnmerge's
+  property syntax and Subversion's svn:mergeinfo syntax.
+  (### This bit reverted in r29743. ###)
+</msg>
+</logentry>
+<logentry
+   revision="29741">
+<author>jerenkrantz</author>
+<date>2008-03-06T05:15:02.118914Z</date>
+<msg>svnmerge.py: Fix brokenness with r29666 when there is no default locale in
+Python.
+
+* contrib/client-side/svnmerge/svnmerge.py
+  (recode_stdout_to_file): Treat as a no-op when there is no default locale
+  which is the standard on several OS-bundled Python installs - Mac OS X 10.5
+  and Solaris 10 both return (None,None).
+</msg>
+</logentry>
+<logentry
+   revision="29740">
+<author>glasser</author>
+<date>2008-03-05T22:19:03.762039Z</date>
+<msg>Comment explicitly that the value returned to SASL in a callback does
+not need to be '\0'-terminated (which confused me for a bit).
+
+* subversion/svnserve/cyrus_auth.c
+  (canonicalize_username): Add clarification to docstring.
+</msg>
+</logentry>
+<logentry
+   revision="29739">
+<author>cmpilato</author>
+<date>2008-03-05T21:13:33.813642Z</date>
+<msg>Prevent svnmerge-migrate-history.py from creating no-op commits, and
+fix some progress printouts.
+
+* contrib/client-side/svnmerge/svnmerge-migrate-history.py
+  (Migrator.convert_path_history): Only commit when the new
+    svn:mergeinfo property differs from any pre-existing one, or when
+    there are svnmerge-blocked or svnmerge-integrated properties to delete.
+</msg>
+</logentry>
+<logentry
+   revision="29738">
+<author>hwright</author>
+<date>2008-03-05T20:42:41.067220Z</date>
+<msg>Fix a problem with reverse order 'log -g' output.
+
+* subversion/libsvn_repos/log.c
+  (do_merged_logs):  Instead of breaking on an out-of-range revision, just
+    continue, because there may be more in-range revisions later.
+
+Found by: markphip
+</msg>
+</logentry>
+<logentry
+   revision="29737">
+<author>xsteve</author>
+<date>2008-03-05T20:37:21.423433Z</date>
+<msg>A small XEmacs fix
+
+* trunk/contrib/client-side/emacs/psvn.el:
+  (svn-parse-status-result): Replaced a call to match-string-no-properties
+    with svn-match-string-no-properties
+</msg>
+</logentry>
+<logentry
+   revision="29736">
+<author>xsteve</author>
+<date>2008-03-05T20:35:28.141716Z</date>
+<msg>Started a FAQ section
+
+* trunk/contrib/client-side/emacs/psvn.el:
+  Added a description how to support user names containing blanks
+</msg>
+</logentry>
+<logentry
+   revision="29735">
+<author>hwright</author>
+<date>2008-03-05T20:22:14.485176Z</date>
+<msg>* www/svn_1.5_releasenotes.html:
+  Do a small bit of copyediting.
+</msg>
+</logentry>
+<logentry
+   revision="29732">
+<author>glasser</author>
+<date>2008-03-05T18:36:03.723178Z</date>
+<msg>Followup to r29730 and r29731: some compilers apparently don't like
+combining #ifdefs with "string" "concatenation".
+
+* subversion/svnserve/main.c
+  (svnserve__options, help): Expand the scope of some #ifdefs.
+</msg>
+</logentry>
+<logentry
+   revision="29731">
+<author>glasser</author>
+<date>2008-03-05T18:23:05.224978Z</date>
+<msg>Followup to r29730: --listen-port and --listen-host are for --service
+(and -X) too.  So don't just blindly change "(for daemon mode)" to
+"[mode: daemon]": add some truth.
+
+* subversion/svnserve/main.c
+  (svnserve__options): Add all modes to --listen-port/--listen-host.
+</msg>
+</logentry>
+<logentry
+   revision="29730">
+<author>glasser</author>
+<date>2008-03-05T18:15:35.104353Z</date>
+<msg>Reorganize the output to "svnserve --help".
+
+svnserve has various modes of operation, exactly one of which must be
+selected: -d, -i, -t, -X, and (on Windows) --service.  This makes the
+output of "svnserve --help" reflect this better.  Specifically:
+
+- Make sure all of the mode descriptions say "foo mode".
+
+- Consistently put "[mode: foo]" after all the options that only
+  matter for certain modes.
+
+- Sort the options list like:
+   - modes
+   - options that apply to all modes
+   - options that apply to specific modes
+   - help/version
+
+- Capitalize Windows; spell out Service Control Manager.
+
+- In the "usage" line, list the mode options.
+
+Also, fix the "you must specify a mode" error message to include
+--service if available.
+
+* subversion/svnserve/main.c
+  (svnserve__options): Reorganize.
+  (help): Make it explicit that a mode argument is required.
+  (main): Fix error message to include --service on Windows.
+</msg>
+</logentry>
+<logentry
+   revision="29729">
+<author>bhuvan</author>
+<date>2008-03-05T17:07:24.353694Z</date>
+<msg>If an invalid repository path is passed to the script, display the error
+message instead of a traceback.
+
+* tools/hook-scripts/svn2feed.py
+  (main): The revision number can not be determined, if an invalid
+  repository path is passed. If this is the case, display an error
+  message.
+</msg>
+</logentry>
+<logentry
+   revision="29694">
+<author>arfrever</author>
+<date>2008-03-04T18:44:40.668146Z</date>
+<msg>* subversion/libsvn_ra_neon/log.c
+  (log_end_element):
+* subversion/svnsync/main.c
+  (subcommand_baton_t):
+* notes/sparse-directories.txt
+  (Compatibility Matters):
+* www/svn_1.5_releasenotes.html
+  (sc-compat):
+  Fix typos.
+</msg>
+</logentry>
+<logentry
+   revision="29693">
+<author>hwright</author>
+<date>2008-03-04T03:37:26.261408Z</date>
+<msg>* www/svn_1.5._releasenotes.html:
+  (fsfs-sharding): Flesh this out using some of Malcolm Rowe's comments
+    about the FSFS sharding feature found here:
+    http://www.farside.org.uk/200704/tree_structured_fsfs
+</msg>
+</logentry>
+<logentry
+   revision="29692">
+<author>kfogel</author>
+<date>2008-03-04T03:20:55.705290Z</date>
+<msg>* CHANGES: Lay out template for 1.5.0 changes.
+</msg>
+</logentry>
+<logentry
+   revision="29691">
+<author>hwright</author>
+<date>2008-03-04T03:02:34.924357Z</date>
+<msg>* www/svn_1.5._releasenotes.html:
+  Note that relative svn:externals is a client-side feature and that
+  FSFS sharding is a server-side feature.
+</msg>
+</logentry>
+<logentry
+   revision="29690">
+<author>hwright</author>
+<date>2008-03-04T02:59:39.373923Z</date>
+<msg>* www/svn_1.5._releasenotes.html
+  (changelist-support):  Flesh out.
+</msg>
+</logentry>
+<logentry
+   revision="29688">
+<author>hwright</author>
+<date>2008-03-04T02:08:53.938663Z</date>
+<msg>* www/svn_1.5._releasenotes.html
+  (cmdline):  Note that '-N' maps to a number of '--depth' options, and add
+    a line about '-R' meaning '--depth=infinity'.
+
+Suggested by: glasser
+</msg>
+</logentry>
+<logentry
+   revision="29687">
+<author>hwright</author>
+<date>2008-03-04T02:02:08.776832Z</date>
+<msg>* www/svn_1.5._releasenotes.html
+  (sparse-checkouts):  Use text from notes/sparse-directories.txt to flesh out
+    this section.
+</msg>
+</logentry>
+<logentry
+   revision="29686">
+<author>hwright</author>
+<date>2008-03-03T22:52:17.050690Z</date>
+<msg>* www/svn_1.5_releasenotes.html
+  (apis): Add a tag missed in r29685.
+</msg>
+</logentry>
+<logentry
+   revision="29685">
+<author>hwright</author>
+<date>2008-03-03T22:36:22.833922Z</date>
+<msg>* www/svn_1.5._releasenotes.html
+  (cmdline):  Add a UI note about '-N' meaning '--depth=files'.
+</msg>
+</logentry>
+<logentry
+   revision="29684">
+<author>hwright</author>
+<date>2008-03-03T22:30:44.662596Z</date>
+<msg>* www/svn_1.5._releasenotes.html
+  (apis):  Add a note about recurse-&gt;depth for most APIs.
+</msg>
+</logentry>
+<logentry
+   revision="29683">
+<author>hwright</author>
+<date>2008-03-03T22:23:27.452750Z</date>
+<msg>* www/svn_1.5._releasenotes.html
+  (webdav-proxy): Using jerenkrantz's notes as source, flesh this section out,
+    and mark pending questions.
+</msg>
+</logentry>
+<logentry
+   revision="29682">
+<author>hwright</author>
+<date>2008-03-03T21:52:18.598406Z</date>
+<msg>* www/svn_1.5._releasenotes.html
+  (bug-fixes): Replace a concrete-but-meaningless number with a placeholder
+    value, so that we don't forget to update it for 1.5.
+</msg>
+</logentry>
+<logentry
+   revision="29681">
+<author>hwright</author>
+<date>2008-03-03T21:49:29.485565Z</date>
+<msg>Flesh out the section on SASL support, mostly by grabbing text from
+notes/sasl.txt.
+
+* www/svn_1.5._releasenotes.html
+  (sasl-compatibility): New section.
+  (cyrus-sasl): Add copied text from notes/sasl.txt.
+</msg>
+</logentry>
+</log>

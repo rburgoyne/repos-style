@@ -120,6 +120,9 @@ limitations under the License.
 		<li id="row:{$id}" class="n{$n mod 4}">
 			<div class="actions">
 				<a id="open:{$id}" class="action" href="{@href}">open</a>
+				<xsl:if test="$logUrl">
+					<a id="history:{$id}" class="action" href="{$logUrl}target={../@path}/{@href}">view history</a>
+				</xsl:if>
 			</div>
 			<a id="f:{$id}" class="folder" href="{@href}">
 				<xsl:value-of select="@name"/>
