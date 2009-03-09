@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="/repos-web/view/repos.xsl"?>
+<!DOCTYPE svn [
+  <!ELEMENT svn   (index)>
+  <!ATTLIST svn   version CDATA #REQUIRED
+                  href    CDATA #REQUIRED>
+  <!ELEMENT index (updir?, (file | dir)*)>
+  <!ATTLIST index name    CDATA #IMPLIED
+                  path    CDATA #IMPLIED
+                  rev     CDATA #IMPLIED
+                  base    CDATA #IMPLIED>
+  <!ELEMENT updir EMPTY>
+  <!ELEMENT file  EMPTY>
+  <!ATTLIST file  name    CDATA #REQUIRED
+                  href    CDATA #REQUIRED>
+  <!ELEMENT dir   EMPTY>
+
+  <!ATTLIST dir   name    CDATA #REQUIRED
+                  href    CDATA #REQUIRED>
+]>
+<svn version="1.5.6 (r36142)"
+     href="http://subversion.tigris.org/">
+  <index rev="1" path="/folder" base="onerepo">
+    <updir />
+    <file name="a.txt" href="a.txt" />
+  </index>
+</svn>
