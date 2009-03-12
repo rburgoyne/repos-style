@@ -7,7 +7,6 @@
 	<dir name="- Sample results of XSLT transformation -" href="#" />
     <file name="Short folder contents" href="index1.html" />
 	<file name="Short log" href="log1.html" />
-	<file name="Long log from Subversion's repository" href="log-long.html" />
 	<file name="Repository root" href="index-root.html" />
 	<file name="Tools: trunk, branches and tags" href="index-tools.html" />
 	<file name="No tools (repository not using trunk/branches/tags convention)" href="index-notools.html" />
