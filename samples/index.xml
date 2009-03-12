@@ -13,5 +13,7 @@
 	<file name="Nested project structure" href="index-subproject.html" />
 	<file name="Trunk in repository root" href="index-doubletrunk.html" />
 	<file name="SVNParentPath with SVNListParentPath" href="index-svnlistparentpath.html" />
+	<file name="Folder with SVNParentPath on svn 1.5+" href="index-baseroot-svn15.html" />
+	<file name="Repo root with SVNParentPath on svn 1.5+" href="index-basefolder-svn15.html" />
   </index>
 </svn>

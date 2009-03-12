@@ -7,18 +7,21 @@
   <!ELEMENT index (updir?, (file | dir)*)>
   <!ATTLIST index name    CDATA #IMPLIED
                   path    CDATA #IMPLIED
-                  rev     CDATA #IMPLIED>
+                  rev     CDATA #IMPLIED
+                  base    CDATA #IMPLIED>
   <!ELEMENT updir EMPTY>
   <!ELEMENT file  EMPTY>
   <!ATTLIST file  name    CDATA #REQUIRED
                   href    CDATA #REQUIRED>
   <!ELEMENT dir   EMPTY>
+
   <!ATTLIST dir   name    CDATA #REQUIRED
                   href    CDATA #REQUIRED>
 ]>
-<svn version="1.4.6 (r28521)"
+<svn version="1.5.6 (r36142)"
      href="http://subversion.tigris.org/">
   <index rev="9" path="/">
     <dir name="project1" href="project1/" />
+    <file name="readme.txt" href="readme.txt" />
   </index>
 </svn>
