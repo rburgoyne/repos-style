@@ -42,9 +42,9 @@ if (strstr($repo,'@@')) die('The log script must be configured with a root URL')
 is_numeric($limit) or die('The log script must be configured with a numeric limit');
 
 if ($isParent) {
-	isset($_REQUEST['base']) or die("Parameter 'base' (svn 1.5+) required for parent");
-	$base = $_REQUEST['base'];
-	$repo = $repo.'/'.$base;
+	isset($_REQUEST['base']) && strlen($_REQUEST['base'])>0
+		or die("Parameter 'base' (Subversion 1.5 or later) required for SVNParentPath");
+	$repo = $repo.'/'.$_REQUEST['base'];
 }
 
 $url = $repo . $target;
