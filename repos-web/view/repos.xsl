@@ -35,13 +35,11 @@ limitations under the License.
 	<!-- cssUrl: absolute url to css folder -->
 	<xsl:param name="cssUrl"><xsl:value-of select="$static"/>style/</xsl:param>
 	<!-- logUrl: empty -> no log tool, absolute url -> enable 'history' link. Must allow appended query param -->
-	<xsl:param name="logUrl"><xsl:value-of select="$static"/>open/log/?</xsl:param>
+	<xsl:param name="logUrl"><xsl:value-of select="$static"/>open/log/?base=<xsl:value-of select="/svn/index/@base"/>&#38;</xsl:param>
 	<!-- startpage: empty -> standard behaviour, absolute url -> special handling of 'up' from trunk -->
 	<xsl:param name="startpage">/</xsl:param>
 	<!-- tools: name of recognized top level folders to get css tool-class -->
 	<xsl:param name="tools">/trunk/branches/tags/</xsl:param>
-	<!-- repository name for SVNParentPath and svn 1.5+ -->
-	<xsl:param name="base"><xsl:if test="/svn/index/@base">/<xsl:value-of select="/svn/index/@base"/></xsl:if></xsl:param>
 	<!-- ===== end of configuration ===== -->
 
 	<xsl:param name="spacer" select="' &#160; '"/>
@@ -86,7 +84,7 @@ limitations under the License.
 		<!-- </xsl:if> -->
 		<!-- <xsl:if test="$logUrl"> add @rev>0 to hide log for SVNParentPath and empty repositories -->
 		<xsl:if test="$logUrl and @rev>0">
-			<a id="history" class="command translate" href="{$logUrl}target={$base}{/svn/index/@path}">folder history</a>
+			<a id="history" class="command translate" href="{$logUrl}target={/svn/index/@path}">folder history</a>
 		</xsl:if>
 		<a id="refresh" class="command translate" href="#" onclick="window.location.reload( true )">refresh</a>
 		</div>
@@ -123,7 +121,7 @@ limitations under the License.
 			<div class="actions">
 				<a id="open:{$id}" class="action" href="{@href}">open</a>
 				<xsl:if test="$logUrl">
-					<a id="history:{$id}" class="action" href="{$logUrl}target={$base}{../@path}/{@href}">view history</a>
+					<a id="history:{$id}" class="action" href="{$logUrl}target={../@path}/{@href}">view history</a>
 				</xsl:if>
 			</div>
 			<a id="f:{$id}" class="folder" href="{@href}">
@@ -144,7 +142,7 @@ limitations under the License.
 			<div class="actions">
 				<a id="open:{$id}" class="action" href="{@href}">open</a>
 				<xsl:if test="$logUrl">
-					<a id="history:{$id}" class="action" href="{$logUrl}target={$base}{../@path}/{@href}">view history</a>
+					<a id="history:{$id}" class="action" href="{$logUrl}target={../@path}/{@href}">view history</a>
 				</xsl:if>
 			</div>
 			<a id="f:{$id}" class="file-{$filetype} file" href="{@href}">

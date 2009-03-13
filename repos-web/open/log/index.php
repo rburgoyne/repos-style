@@ -22,8 +22,9 @@ $xslt = '/repos-web/view/log.xsl';
 
 // URL or path to repository, no trailing slash
 // (note that the log viewer may bypass access control)
-// For SVNParentPath setup in svn 1.5+, set this to the parent URL
 $repo = '@@Repository@@';
+// For SVNParentPath and svn 1.5+, set $repo to parent and this to true
+$isParent = false;
 
 // limit log length for performance reasons (users should run svn client for more entries)
 $limit = 20;
@@ -39,6 +40,12 @@ $target = $_REQUEST['target'];
 // === validate and run svn ===
 if (strstr($repo,'@@')) die('The log script must be configured with a root URL');
 is_numeric($limit) or die('The log script must be configured with a numeric limit');
+
+if ($isParent) {
+	isset($_REQUEST['base']) or die("Parameter 'base' (svn 1.5+) required for parent");
+	$base = $_REQUEST['base'];
+	$repo = $repo.'/'.$base;
+}
 
 $url = $repo . $target;
 
