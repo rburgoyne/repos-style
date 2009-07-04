@@ -47,7 +47,8 @@ limitations under the License.
 		<html xmlns="http://www.w3.org/1999/xhtml">
 			<head>
 				<title>
-					<xsl:text>repos: </xsl:text>
+					<xsl:value-of select="/svn/index/@base"/>
+					<xsl:text> repos: </xsl:text>
 					<xsl:value-of select="/svn/index/@path"/>
 				</title>
 				<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -109,7 +110,7 @@ limitations under the License.
 			</xsl:apply-templates>
 			<xsl:apply-templates select="file">
 				<xsl:sort select="@name"/>
-        <xsl:with-param name="repoRev" select="@rev"/>
+				<xsl:with-param name="repoRev" select="@rev"/>
 			</xsl:apply-templates>
 		</ul>
 	</xsl:template>
@@ -117,13 +118,13 @@ limitations under the License.
 		<xsl:param name="id">
 			<xsl:call-template name="getFileID"/>
 		</xsl:param>
-    <xsl:param name="repoRev"/>
+		<xsl:param name="repoRev"/>
 		<xsl:param name="n" select="position() - 1"/>
 		<li id="row:{$id}" class="n{$n mod 4}">
 			<div class="actions">
 				<a id="open:{$id}" class="action" href="{@href}">open</a>
-        <!--Hide the "view history" column in the listing if displaying SVNParentPath -->
-        <xsl:if test="$logUrl and $repoRev &gt; 0">
+				<!--Hide the "view history" column in the listing if displaying SVNParentPath -->
+				<xsl:if test="$logUrl and $repoRev &gt; 0">
 					<a id="history:{$id}" class="action" href="{$logUrl}target={../@path}/{@href}">view history</a>
 				</xsl:if>
 			</div>
