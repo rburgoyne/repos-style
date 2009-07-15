@@ -23,7 +23,7 @@ $xslt = '/repos-web/view/log.xsl';
 // URL or path to repository, no trailing slash
 // (note that the log viewer may bypass access control)
 $repo = '@@Repository@@';
-// For SVNParentPath and svn 1.5+, set $repo to parent and this to true
+// For SVNParentPath set $repo to parent and this to true
 $isParent = false;
 
 // limit log length for performance reasons (users should run svn client for more entries)
