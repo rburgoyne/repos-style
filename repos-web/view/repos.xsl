@@ -47,8 +47,8 @@ limitations under the License.
 		<html xmlns="http://www.w3.org/1999/xhtml">
 			<head>
 				<title>
+					<xsl:text>repos: </xsl:text>
 					<xsl:value-of select="/svn/index/@base"/>
-					<xsl:text> repos: </xsl:text>
 					<xsl:value-of select="/svn/index/@path"/>
 				</title>
 				<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
