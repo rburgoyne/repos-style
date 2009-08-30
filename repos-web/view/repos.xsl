@@ -55,6 +55,10 @@ limitations under the License.
 				<meta name="robots" content="noarchive"/>
 				<link rel="shortcut icon" href="/favicon.ico"/>
 				<xsl:call-template name="styletag"/>
+				<!-- repos metadata for use in plugins -->
+				<meta name="repos-service" content="index/" />
+				<meta name="repos-target" content="{/svn/index/@path}/" />
+				<meta name="repos-base" content="{/svn/index/@base}" />
 			</head>
 			<body class="repository xml">
 				<xsl:apply-templates select="svn"/>
