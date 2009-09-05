@@ -59,6 +59,10 @@ limitations under the License.
 				<meta name="repos-service" content="index/" />
 				<meta name="repos-target" content="{/svn/index/@path}/" />
 				<meta name="repos-base" content="{/svn/index/@base}" />
+				<!-- Repos Search
+				<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+				<script type="text/javascript" src="/repos-search/repos-search.load.js"></script>						
+				 -->
 			</head>
 			<body class="repository xml">
 				<xsl:apply-templates select="svn"/>
