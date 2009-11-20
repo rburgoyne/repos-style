@@ -38,10 +38,12 @@ table h3 {
 
 <body>
 <h1><span id="repos">Repos</span><span id="style">Style</span> &nbsp; &nbsp; </h1>
-<p>A free  open source <em>stylesheet</em> for the Subversion index web page. The XSLT and CSS is fully customizable. There is icons for folders and many different filetypes. Install Repos Style as it is or use is as a sample XSLT to design your own. A simple <em>log viewer</em> is also included. </p>
-<p><em>You need</em> the repository configured in Apache. See <a href="http://svnbook.red-bean.com/nightly/en/svn.serverconfig.httpd.html">the Subversion book</a>. Repos Style is installed using the <code>SVNIndexXSLT</code> directive. To use the log viewer you need PHP.</p>
-<p><em>The advantages</em> of using XSLT instead of a viewer like ViewSVN is that it is lightweight and that you use the <em>real URLs</em> in the directory listing. There is no viewer for older revisions, but you can customize the stylesheet to link to other tools. </p>
-<p>View <em>samples </em><a href="samples/">here</a>. </p>
+<p>&mdash; A free  open source <em>stylesheet</em> for the Subversion web index. 
+The XSLT and CSS is fully customizable. 
+There is icons for folders and many different filetypes. 
+Install Repos Style as it is or use is as a sample xsl to design your own.
+A simple <em>log viewer</em> is also included.</p>
+<p>View <em>sample transforms</em> <a href="samples/">here</a>. </p>
 <table border="0" cellspacing="19">
 <tr><td><table style="border: 0px;" id="screenshots">
   <tr>
@@ -53,7 +55,11 @@ table h3 {
   </tr>
 </table></td></tr>
 </table>
-<p>Start by verifying that your http repository is up and running. </p>
+<p><em>The advantages</em> of using XSLT instead of a viewer like ViewSVN is that it is lightweight and that you use the <em>real URLs</em> in the directory listing.</p>
+<h2>Installation</h2>
+<p><em>You need</em> the repository configured in Apache. 
+See <a href="http://svnbook.red-bean.com/nightly/en/svn.serverconfig.httpd.html">the Subversion book</a>. 
+Repos Style is installed using the <code>SVNIndexXSLT</code> directive. To use the log viewer you need PHP.</p>
 <ol><li><a href="#download">Download</a> Repos Style zip </li>
   <li>Unzip to the document root of the repository host (this creates a folder /repos-web)</li>
   <li>In the Apache config, set <code>SVNIndexXSLT &quot;/repos-web/view/repos.xsl&quot;</code></li>
@@ -69,11 +75,10 @@ table h3 {
   <li>In the XSLT files (view/repos.xls and view/log.xsl), change the <code>xsl:param</code> &quot;<code>static</code>&quot; to your new folder name.</li>
 </ul>
 <h2>How to customize </h2>
-<p>Check the configuration section in the XSL files.</p>
-<p>It is good practice to have a start page on the repository host with links to each project's <code>trunk, branches, tags</code> folder(s).
-That way you don't need to give read access to repository root (which would be inherited to new projects by default).
-Repos Style XSLT has a <em>startpage</em> property to set a URL for the toolbar's &quot;home&quot; button.
-</p>
+<p>The XSLT file <code>repos.xsl</code> can be used as example for writing your own SVNIndexXSLT. 
+Customize it anyway you want to.</p>
+<p>For simple tweaking check the configuration section in the xsl files.
+For example you can set the <em>startpage</em> propety for navigation to you host's start page.</p>
 <p>To customize the menu, edit the <code>commandbar</code> section of the xsl.
 To customize the buttons displayed on each row, edit the <code>actions</code> section of the <code>dir</code> and <code>file</code> xsl templates.
 </p>
