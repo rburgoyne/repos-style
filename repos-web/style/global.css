@@ -202,3 +202,8 @@ a.folder, #path a {
 .error {
 	color: #CC0000;
 }
+/* Repos Search customization */
+.repos-search-resultfile {
+	font-weight: bold;
+}
+
