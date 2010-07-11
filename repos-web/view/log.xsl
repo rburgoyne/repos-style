@@ -136,7 +136,12 @@ limitations under the License.
 		</xsl:param>
 		<div class="row log-{@action}">
 			<xsl:if test="@action='A' or @action='R'">
-				<span class="path" title="Added {.}">
+				<span class="path">
+					<xsl:attribute name="title">
+						<xsl:if test="@action='A'">Added </xsl:if>
+						<xsl:if test="@action='R'">Replaced </xsl:if>
+						<xsl:value-of select="."/>
+					</xsl:attribute>
 					<xsl:value-of select="."/>
 				</span>
 				<xsl:value-of select="$spacer"/>
