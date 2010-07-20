@@ -40,11 +40,12 @@ limitations under the License.
 					<xsl:text>repos: history</xsl:text>
 				</title>
 				<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-				<!-- if search crawlers has access, contents should not be cached -->
+				<!-- if search crawlers have access, contents should not be cached -->
 				<meta name="robots" content="noarchive"/>
 				<link rel="shortcut icon" href="/favicon.ico"/>
 				<link title="repos" rel="stylesheet" type="text/css" href="{$cssUrl}global.css"/>
 				<link title="repos" rel="stylesheet" type="text/css" href="{$cssUrl}log/log.css"/>
+				<!-- add plugin javascripts here -->
 			</head>
 			<body class="log xml">
 				<xsl:apply-templates select="log"/>

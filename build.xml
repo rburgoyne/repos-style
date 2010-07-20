@@ -1,10 +1,10 @@
-<project name="Repos Style" default="dist" basedir=".">
+<project name="Repos Style" default="dist-with-plugins" basedir=".">
 	<description>
 		Build and package the Repos Style project
    </description>
 
 	<!-- project info -->
-	<property name="version" value="2.3" />
+	<property name="version" value="2.4" />
 	<filter token="Dev" value="${version}"/>
 
 	<!-- configuration -->
@@ -75,6 +75,36 @@
 			<fileset dir="${dist}" includes="*LICENSE*" />
 		</copy>
 		<zip destfile="${dist}/download/repos-style-${version}.zip">
+			<fileset dir="${dist}">
+				<include name="${app}/**"/>
+			</fileset>
+		</zip>
+	</target>
+	
+	<target name="dist-with-plugins" depends="clean,dist" description="distribution with all tagged plugins">
+		<exec executable="svn" failonerror="true">
+			<arg value="export"/>
+			<arg value="https://labs.repos.se/data/repos-plugins/tags/${version}/"/>
+			<arg value="${dist}/repos-plugins"/>
+		</exec>
+		<echo message="Replacing plugin comment with plugin scripts"/>
+		<replace file="${dist}/${app}/view/repos.xsl" summary="true"
+			token="!-- add plugin javascripts here -->">
+			<replacevalue><![CDATA[!-- plugins -->
+				<script type="text/javascript" src="/repos-plugins/jquery.min.js"></script>
+				<!--<script type="text/javascript" src="/repos-search/repos-search.plugin.js"></script>-->
+				<script type="text/javascript" src="/repos-plugins/logrss/logrss.plugin.js"></script>
+				]]></replacevalue>
+		</replace>
+		<replace file="${dist}/${app}/view/log.xsl" summary="true"
+			token="!-- add plugin javascripts here -->">
+			<replacevalue><![CDATA[!-- plugins -->
+				<script type="text/javascript" src="/repos-plugins/jquery.min.js"></script>
+				<script type="text/javascript" src="/repos-plugins/dateformat/dateformat.plugin.js"></script>
+				<script type="text/javascript" src="/repos-plugins/logrss/logrss.plugin.js"></script>
+				]]></replacevalue>
+		</replace>
+		<zip destfile="${dist}/download/repos-style-with-plugins-${version}.zip">
 			<fileset dir="${dist}">
 				<include name="${app}/**"/>
 			</fileset>
