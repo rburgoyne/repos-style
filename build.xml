@@ -107,6 +107,7 @@
 		<zip destfile="${dist}/download/repos-style-with-plugins-${version}.zip">
 			<fileset dir="${dist}">
 				<include name="${app}/**"/>
+				<include name="repos-plugins/**"/>
 			</fileset>
 		</zip>
 	</target>
