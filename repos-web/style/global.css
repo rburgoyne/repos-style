@@ -18,7 +18,7 @@ html {
 	filter: expression(document.execCommand("BackgroundImageCache", false, true));
 }
 body {
-	margin-top: 0px;
+	margin: 0px;
 	font-family: Verdana, Helvetica, Arial, sans-serif;
 	font-size: 82.5%;
 }
@@ -84,9 +84,7 @@ span.action {
 /* common page elements, may also be layouted for each tool */
 #commandbar {
 	min-width: 980px;
-	height: 1.5em;
 	background-color: #ECF1EF;
-	padding: 3px;
 	border-bottom: 1px solid #CCCCCC;
 }
 /* command = commandbar button, <a> is  active, <span> is greyed out */
@@ -100,8 +98,8 @@ span.action {
 	margin-bottom: 0px;
 	padding-left: 22px;
 	padding-right: 1.0em;
-	padding-top: 0.4em;
-	padding-bottom: 0.6em;
+	padding-top: 0;
+	padding-bottom: 0;
 	line-height: 1.5em;
 }
 #commandbar a {
@@ -135,7 +133,10 @@ span.action {
 }
 #footer {
 	margin-top: 1.5em;
-	padding: 0.2em;
+	padding: 0.3em;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
 	width: 100%;
 	clear: both;
 	border-top: 1px solid #CCCCCC;
